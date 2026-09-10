@@ -613,7 +613,7 @@ hr {
 }
 
 .btn-download_csv {
-    height: 55px;
+    height: 50px;
     width: max-content;
     margin-right: 6px;
     padding: 10px 24px;
@@ -643,7 +643,7 @@ hr {
 
 .upload-data {
     background-color: #C1F272;
-    height: 55px;
+    height: 50px;
     text-align: center;
     width: max-content;
     border-radius: 5px;
@@ -666,7 +666,7 @@ hr {
 .import-export-buttons {
     display: flex;
     flex-direction: row;
-    justify-self: flex-end;
+    justify-content: flex-end;
 }
 
 .import-export-container {
@@ -816,6 +816,16 @@ hr {
     justify-content: center;
     display: flex;
     flex-direction: column;
+}
+
+.inclusion-exclusion{
+    padding: 10px;
+    box-shadow: none;
+}
+
+.inclusion-exclusion p{
+ 
+    font-size: 1.5rem;
 }
 
 

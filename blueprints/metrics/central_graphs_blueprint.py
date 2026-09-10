@@ -8,6 +8,7 @@ box. Owns the callbacks that produce the graph figures, since they're specific
 to this section of the page.
 """
 
+import os
 from types import SimpleNamespace
 
 from dash import Input, Output, dcc, html
@@ -28,6 +29,7 @@ from utils.graphics import (
     loading_wrapper,
 )
 
+image_dir = os.path.join("assets", "images")
 
 class CentralGraphsBlueprint(DashBlueprint):
     def __init__(self, id_prefix: str):
@@ -53,17 +55,31 @@ class CentralGraphsBlueprint(DashBlueprint):
                 html.Div(
                     [
                         html.Div(
-                            html.P(
-                                "place holder for whats included in calculation and what the calculator cant tell you"
-                            ),
+                            [
+                                html.P(
+                                    "What is included in the calculator?", style={"font-weight": "bold"}
+                                ),
+                                html.Img(
+                                    src=os.path.join(image_dir, "inclusion_static_graph.png"),
+                                    id="inclusion_graph",
+                                    className="inclusion-graph",
+                                    style={"width": "320px", "padding": "5px"},
+                                )
+                            ],
+                            style={"width": "50%", "padding-right": "10px"}
                         ),
                         html.Div(
-                            html.P(
-                                "Other environmental impact such as water use, e-waste produced, changes to land use on site of computing facilities, that could impact biodiversity and local populations."
-                            )
+                            [
+                                html.P("What the calculator does not include?", style={"font-weight": "bold"}),
+                                html.P(
+                                    "Other environmental impact such as water use, e-waste produced, changes to land use on site of the computing facilities that could impact biodiversity and local populations."
+                                )
+                            ],
+                            style={"width": "50%", "padding-left": "10px"}
                         ),
                     ],
-                    className="container mini-box",
+                    className="container inclusion-exclusion",
+                    style={"display": "flex", "flex-direction": "row", "align-items": "flex-start"}
                 ),
                 html.Div(
                     [

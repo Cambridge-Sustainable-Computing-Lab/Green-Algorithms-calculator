@@ -212,7 +212,7 @@
     }
 
     .definitions .container {
-        height: calc((50%) - (12px));
+        height: max-content;
     }
 
     .methodology-container {

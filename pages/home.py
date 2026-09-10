@@ -312,46 +312,20 @@ def forward_results_from_form_to_metrics(form_metrics):
 # ## OUTPUT GRAPHICS
 
 
-# @HOME_PAGE.callback(
-#     Output("pie_graph", "figure"),
-#     [
-#         Input(f"{HOME_PAGE_ID_PREFIX}-form_aggregate_data", "data"),
-#         Input(f"{HOME_PAGE_ID_PREFIX}-form_output_metrics", "data"),
-#     ],
-# )
-# def create_pie_graph(form_agg_data, form_metrics):
-#     return create_cores_memory_pie_graphic(form_agg_data, form_metrics)
-
-
-# # FIXME: looks weird with 0 emissions
-# @HOME_PAGE.callback(
-#     Output("barPlotComparison", "figure"),
-#     [
-#         Input(f"{HOME_PAGE_ID_PREFIX}-form_output_metrics", "data"),
-#         Input("versioned_data", "data"),
-#     ],
-# )
-# def create_bar_chart(form_metrics, versioned_data):
-#     if versioned_data is not None:
-#         versioned_data = SimpleNamespace(**versioned_data)
-#         return create_ci_bar_chart_graphic(form_metrics, versioned_data)
-#     return None
-
-
-# @HOME_PAGE.callback(
-#     Output("barPlotComparison_cores", "figure"),
-#     [
-#         Input(f"{HOME_PAGE_ID_PREFIX}-form_aggregate_data", "data"),
-#         Input("versioned_data", "data"),
-#     ],
-# )
-# def create_bar_chart_cores(form_agg_data, versioned_data):
-#     if versioned_data is not None:
-#         versioned_data = SimpleNamespace(**versioned_data)
-#         if form_agg_data["coreType"] is None:
-#             return go.Figure()
-#         return create_cores_bar_chart_graphic(form_agg_data, versioned_data)
-#     return None
+@HOME_PAGE.callback(
+    Output("barPlotComparison_cores", "figure"),
+    [
+        Input(f"{HOME_PAGE_ID_PREFIX}-form_aggregate_data", "data"),
+        Input("versioned_data", "data"),
+    ],
+)
+def create_bar_chart_cores(form_agg_data, versioned_data):
+    if versioned_data is not None:
+        versioned_data = SimpleNamespace(**versioned_data)
+        if form_agg_data["coreType"] is None:
+            return go.Figure()
+        return create_cores_bar_chart_graphic(form_agg_data, versioned_data)
+    return None
 
 
 ## OUTPUT SUMMARY
