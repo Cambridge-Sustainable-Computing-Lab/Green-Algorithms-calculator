@@ -201,6 +201,7 @@ def create_cores_bar_chart_graphic(aggregated_data, versioned_data):
 
 def get_ci_bar_chart_layout():
     layout_bar = copy.deepcopy(PLOTS_LAYOUT)
+    layout_bar["height"] = 350
     layout_bar["xaxis"] = dict(
         color=MY_COLORS["fontColor"],
     )
@@ -208,7 +209,7 @@ def get_ci_bar_chart_layout():
         color=MY_COLORS["fontColor"],
         title=dict(
             text="Emissions (gCO2e)",
-            standoff=100,
+            standoff=20,
         ),
         showspikes=False,
         showgrid=True,
@@ -289,8 +290,8 @@ def get_cores_memory_pie_chart_layout(aggregated_data):
     if aggregated_data["coreType"] == "CPU + GPU":
         layout_pie["height"] = 350
     else:
-        layout_pie["height"] = 300
-        layout_pie["margin"]["t"] = 40
+        layout_pie["height"] = 350
+        layout_pie["margin"]["t"] = 30
     return layout_pie
 
 
@@ -376,7 +377,7 @@ def create_cores_memory_pie_graphic(form_agg_data, form_metrics):
 def get_manufacturing_carbon_pie_chart_layout():
     layout_pie = copy.deepcopy(PLOTS_LAYOUT)
     layout_pie["margin"] = dict(l=0, r=0, b=0, t=40)
-    layout_pie["height"] = 350
+    layout_pie["height"] = 330
     return layout_pie
 
 

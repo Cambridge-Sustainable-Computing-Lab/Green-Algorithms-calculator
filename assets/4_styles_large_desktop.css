@@ -95,9 +95,10 @@
     */
 
     .one-of-two-graphs {
-        width: calc((50%) - (10px));
+        padding: 0 20px;
     }
 
+    /*
     .one-of-two-graphs:first-of-type {
         margin-right: 20px;
         margin-bottom: 0;
@@ -107,7 +108,7 @@
         padding-right: 0;
         padding-left: 0;
         /*margin-bottom: 0;*/
-    }
+    } */
 
     /*
     ---------------------------------- FOOTER ----------------------------------------
@@ -117,4 +118,3 @@
         flex-grow:1;
     }
 
-}

@@ -87,8 +87,6 @@ body {
 }
 
 
-
-
 /*
 ---------------------------------- HEADER ----------------------------------------
 */
@@ -97,7 +95,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 15px;
-    padding-top: 38px;
+    padding: 20px;
     margin-top: 10px;
     margin-bottom: 6px;
 }
@@ -105,6 +103,14 @@ body {
 .header_title {
     width: stretch;
     text-align: left;
+}
+
+.header_title_container{
+    width: max-content;
+}
+
+.header_title_container h1{
+    margin-bottom: 0px;
 }
 
 .Hr_div_header {
@@ -125,12 +131,14 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding-left: 40px;
+    padding-top: 5px;
     /* margin-top: 3em; only if removing the horizontal rule between title and pages-menu */
 }
 
 .page-navlink {
-    margin-left: 12px;
-    margin-right: 12px;
+    /* margin-left: 12px;
+    margin-right: 12px; */
     width: 100%;
     text-align: center;
 }
@@ -222,6 +230,23 @@ body {
 #language_dropdown .Select-multi-value-wrapper {
     width: 5.5em;
     height: 2.2em;
+}
+
+.header-button-container{
+    margin-bottom: -20px;
+    margin-left: auto;
+}
+
+.header-button-container .btn-download_csv{
+    background-color: orange;
+    box-shadow: none;
+    height: min-content;
+    padding: 6px 15px;
+    margin-right: 0px;
+}
+
+.header-button-container .btn-download_csv:hover {
+    background-color: #F08C1A
 }
 
 /*
@@ -348,6 +373,23 @@ hr {
 
 .Select-arrow-zone {
     background-color: #FFFFFF;
+}
+
+.use_case_dropdown_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.use_case_dropdown_container p{
+    margin-bottom: 10px;
+}
+
+#main-use_case_dropdown{
+    width: 75%;
+    margin-bottom: 10px;
+    margin-left: 5px
 }
 
 
@@ -584,6 +626,7 @@ hr {
     cursor: pointer;
     outline: none;
     font-family: inherit;
+    box-shadow: 2px 2px 2px lightgrey;
 }
 
 .btn-download_csv:hover {
@@ -609,6 +652,7 @@ hr {
     cursor: pointer;
     outline: none;
     transition: background-color 0.15s ease;
+    box-shadow: 2px 2px 2px lightgrey;
 }
 
 .upload-data:hover {
@@ -634,9 +678,10 @@ hr {
 */
 
 .central-graphs{
-    /* flex-direction: row; */
+    flex-direction: row;
     padding: 0px;
     box-shadow: none;
+    align-items: flex-start;
 }
 
 .central-box{
@@ -797,8 +842,12 @@ hr {
     width: 100%;
 }
 
-.one-of-two-graphs:first-of-type {
-    margin-bottom: 50px;
+#manufacturing_pie_graph {
+    margin-top: 14px;
+}
+
+#pie_graph{
+    margin-top: -12px;
 }
 
 /*

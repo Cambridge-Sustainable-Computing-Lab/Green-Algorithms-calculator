@@ -39,7 +39,7 @@
     }
 
     .navlink-label {
-        font-size: 2.9em;
+        font-size: 2rem;
     }
 
     #versions_div {
@@ -192,11 +192,10 @@
     }
 
 
-    .one-of-two-graphs:last-of-type {
+    /* .one-of-two-graphs:last-of-type {
         padding-right: 80px;
         padding-left: 80px;
-        /*margin-bottom: 0;*/
-    }
+    } */
 
 
     /*

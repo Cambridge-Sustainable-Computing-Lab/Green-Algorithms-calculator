@@ -70,7 +70,7 @@ server = app.server
 HOME_PAGE.register(app, module='home', path='/', title='Green Algorithms - Classic view')
 AI_PAGE.register(app, module='ai', path='/ai', title='Green Algorithms - AI view')
 
-
+image_dir = os.path.join("assets", "images")
 
 ###################################################
 ## CREATE NAVBAR
@@ -206,10 +206,22 @@ app.layout = dmc.MantineProvider(
                 [
                     html.Div(
                         [
-                        html.H1(translatable_div_text("Green Algorithms calculator").embed(app)),
-                        html.P(translatable_div_text("Subtitle").embed(app))
+                            html.Img(
+                                src=os.path.join(image_dir, "ga_logo_tree.svg"),
+                                id="ga_logo",
+                                className="header-logo",
+                                style={"width": "90px", "padding": "5px", "padding-bottom": "10px"},
+                            ),
+                            html.Div(
+                                [
+                                    html.H1(translatable_div_text("Green Algorithms calculator").embed(app)),
+                                    html.P(translatable_div_text("Subtitle").embed(app)),
+                                ],
+                                className='header_title_container',
+                            ),
                         ],
-                        className='header_title'
+                        className='header_title',
+                        style={"display": "flex", "flex-direction": "row", "align-items": "center"},
                     ),
                 
                     # html.Div(
@@ -225,6 +237,14 @@ app.layout = dmc.MantineProvider(
                         [
                             language_choice,
                             versions_choice,
+                            html.Div(
+                                html.A(
+                                    html.Button("Data and code", id='github-link-button', className='btn-download_csv',),
+                                    href='https://github.com/Cambridge-Sustainable-Computing-Lab/Green-Algorithms-calculator',
+                                    target="_blank",
+                                ),
+                                className='header-button-container'
+                            )
                         ],
                         className='version_and_language_div'
                     ),

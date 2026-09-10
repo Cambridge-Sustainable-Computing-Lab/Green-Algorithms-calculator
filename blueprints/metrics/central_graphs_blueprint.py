@@ -67,8 +67,8 @@ class CentralGraphsBlueprint(DashBlueprint):
                 ),
                 html.Div(
                     [
-                        html.Div(
-                            [
+                        # html.Div(
+                        #     [
                                 ## Manuacturing vs Usage Pie Chart
                                 html.Div(
                                     [
@@ -107,9 +107,9 @@ class CentralGraphsBlueprint(DashBlueprint):
                                     ],
                                     className="one-of-two-graphs",
                                 ),
-                            ],
-                            className="container pie-graphs-container",
-                        ),
+                        #     ],
+                        #     className="container pie-graphs-container",
+                        # ),
                         ## Location impact bar chart
                         html.Div(
                             [
