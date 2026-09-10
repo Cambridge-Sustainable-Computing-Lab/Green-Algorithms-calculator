@@ -282,16 +282,6 @@ app.layout = dmc.MantineProvider(
                         className='container footer'
                     ),
 
-                    ### QUESTIONS AND SUGGESTIONS ###
-
-                    html.Div(
-                        [
-                            html.H2(translatable_div_text('Questions_suggestions').embed(app)),
-
-                            html.Div(translatable_markdown_text("Questions_suggestions_text").embed(app)),
-                        ],
-                        className='container footer'
-                    )
                 ],
                 className='super-section data-questions'
             ),

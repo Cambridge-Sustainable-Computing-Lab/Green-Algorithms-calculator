@@ -62,72 +62,83 @@ class CoreImpactsBlueprint(DashBlueprint):
         return html.Div(
             [
                 dcc.Store(id="base_results"),
-
-                #### ELECTRICITY CONSUMPTION ####
+                html.H3("Your computation results in approximately:"),
                 html.Div(
                     [
+                        #### ELECTRICITY CONSUMPTION ####
                         html.Div(
                             [
-                                html.Img(
-                                    src=os.path.join(image_dir, "logo_power_1.svg"),
-                                    id="logo_power",
-                                    className="style-icon",
-                                    style={"margin": "0px", "padding": "10px", "margin-right": "4px"},
-                                ),
                                 html.Div(
                                     [
-                                        loading_wrapper(html.Div(id="energy_text")),
-                                        html.P(
-                                            translatable_div_text(
-                                                "Energy_needed"
-                                            ).embed(self)
+                                        html.Img(
+                                            src=os.path.join(
+                                                image_dir, "logo_power_1.svg"
+                                            ),
+                                            id="logo_power",
+                                            className="style-icon",
+                                            style={
+                                                "margin": "0px",
+                                                "padding": "10px",
+                                                "margin-right": "4px",
+                                            },
+                                        ),
+                                        html.Div(
+                                            [
+                                                loading_wrapper(
+                                                    html.Div(id="energy_text")
+                                                ),
+                                                html.P(
+                                                    translatable_div_text(
+                                                        "Energy_needed"
+                                                    ).embed(self)
+                                                ),
+                                            ],
+                                            className="caption-icons",
                                         ),
                                     ],
-                                    className="caption-icons",
+                                    className="mini-box-main-content",
                                 ),
+                                self.energy_needed_details,
                             ],
-                            className="mini-box-main-content",
+                            # className="container mini-box",
                         ),
-                        self.energy_needed_details,
-                    ],
-                    # className="container mini-box",
-                ),
-                #### CARBON EMISSIONS ####
-                html.Div(
-                    [
+                        #### CARBON EMISSIONS ####
                         html.Div(
                             [
-                                html.Img(
-                                    src=os.path.join(image_dir, "logo_co2.svg"),
-                                    id="logo_co2",
-                                    className="style-icon",
-                                    style={
-                                        "margin-top": "-7px",
-                                        "margin-bottom": "7px",
-                                        "margin-right": "4px",
-                                    },
-                                ),
                                 html.Div(
                                     [
-                                        loading_wrapper(
-                                            html.Div(id="carbonEmissions_text")
+                                        html.Img(
+                                            src=os.path.join(image_dir, "logo_co2.svg"),
+                                            id="logo_co2",
+                                            className="style-icon",
+                                            style={
+                                                "margin-top": "-7px",
+                                                "margin-bottom": "7px",
+                                                "margin-right": "4px",
+                                            },
                                         ),
-                                        html.P(
-                                            translatable_div_text(
-                                                "Carbon_footprint"
-                                            ).embed(self)
+                                        html.Div(
+                                            [
+                                                loading_wrapper(
+                                                    html.Div(id="carbonEmissions_text")
+                                                ),
+                                                html.P(
+                                                    translatable_div_text(
+                                                        "Carbon_footprint"
+                                                    ).embed(self)
+                                                ),
+                                            ],
+                                            className="caption-icons",
                                         ),
                                     ],
-                                    className="caption-icons",
+                                    className="mini-box-main-content",
                                 ),
+                                self.carbon_footprint_details,
                             ],
-                            className="mini-box-main-content",
                         ),
-                        self.carbon_footprint_details,
                     ],
-                    # className="container mini-box",
+                    className="core-metrics-container"
                 ),
-                
             ],
             className="super-section mini-boxes-core",
         )

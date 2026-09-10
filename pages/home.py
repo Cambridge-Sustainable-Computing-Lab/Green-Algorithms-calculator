@@ -17,6 +17,7 @@ from dash_extensions.enrich import DashBlueprint, html  # noqa: F811
 from blueprints.form.form_blueprint import FormBlueprint
 from blueprints.import_export.import_export_blueprint import ImportExportBlueprint
 from blueprints.methodology.methodology_blueprint import MethodologyBlueprint
+from blueprints.metrics.central_graphs_blueprint import CentralGraphsBlueprint
 from blueprints.metrics.core_metrics_blueprint import CoreImpactsBlueprint
 from blueprints.metrics.equivalent_metrics_blueprint import EquivalentsMetricsBlueprint
 from blueprints.translation.translatable_div_text_blueprint import translatable_div_text
@@ -65,6 +66,7 @@ core_metrics = CoreImpactsBlueprint(id_prefix=f"{HOME_PAGE_ID_PREFIX}")
 equivalents_metrics = EquivalentsMetricsBlueprint(id_prefix=f"{HOME_PAGE_ID_PREFIX}")
 
 import_export = ImportExportBlueprint(id_prefix=HOME_PAGE_ID_PREFIX)
+central_graphs = CentralGraphsBlueprint(id_prefix=HOME_PAGE_ID_PREFIX)
 
 
 ###################################################
@@ -86,71 +88,34 @@ def get_home_page_layout():
                                 [
                                     import_export.embed(HOME_PAGE),
                                     #### DYNAMIC GRAPHS ####
-                                    html.Div(
-                                        [
-                                            html.Div(
-                                                html.P(
-                                                    "place holder for whats included in calculation and what the calculator cant tell you"
-                                                ),
-                                            ),
-                                        ],
-                                        className="container mini-box",
-                                    ),
-                                    html.Div(
-                                        [
-                                            html.Div(
-                                                [
-                                                    html.H2(
-                                                        translatable_div_text(
-                                                            "Computing_cores_VS_Memory"
-                                                        ).embed(HOME_PAGE)
-                                                    ),
-                                                    loading_wrapper(
-                                                        dcc.Graph(
-                                                            id="pie_graph",
-                                                            className="graph-container pie-graph",
-                                                            config={
-                                                                "displaylogo": False
-                                                            },
-                                                            figure=BLANK_FIGURE,
-                                                        )
-                                                    ),
-                                                ],
-                                                className="one-of-two-graphs",
-                                            ),
-                                            html.Div(
-                                                [
-                                                    html.H2(
-                                                        translatable_div_text(
-                                                            "Location_impact_graphs_title"
-                                                        ).embed(HOME_PAGE)
-                                                    ),
-                                                    loading_wrapper(
-                                                        dcc.Graph(
-                                                            id="barPlotComparison",
-                                                            className="graph-container",
-                                                            config={
-                                                                "displaylogo": False
-                                                            },
-                                                            figure=BLANK_FIGURE,
-                                                            style={
-                                                                "margin-top": "20px"
-                                                            },
-                                                        ),
-                                                    ),
-                                                ],
-                                                className="one-of-two-graphs",
-                                            ),
-                                        ],
-                                        className="container two-graphs-box",
-                                    ),
+                                    central_graphs.embed(HOME_PAGE),
                                 ],
                                 className="container metrics-output",
                             ),
                         ],
                         className="super-section metrics-output",
                     ),
-                    equivalents_metrics.embed(HOME_PAGE),
+                    html.Div(
+                        [
+                            equivalents_metrics.embed(HOME_PAGE),
+                            html.Div(
+                                [
+                                    html.H3(
+                                        translatable_div_text(
+                                            "Questions_suggestions"
+                                        ).embed(HOME_PAGE)
+                                    ),
+                                    html.P(
+                                        translatable_markdown_text("Questions_suggestions_text").embed(
+                                            HOME_PAGE
+                                        )
+                                    ),
+                                ],
+                                className="suggestions-container",
+                            ),
+                        ],
+                        className="super-section mini-boxes",
+                    ),
                 ],
                 className="super-section first-output",
             ),
@@ -344,49 +309,49 @@ def forward_results_from_form_to_metrics(form_metrics):
     }
 
 
-## OUTPUT GRAPHICS
+# ## OUTPUT GRAPHICS
 
 
-@HOME_PAGE.callback(
-    Output("pie_graph", "figure"),
-    [
-        Input(f"{HOME_PAGE_ID_PREFIX}-form_aggregate_data", "data"),
-        Input(f"{HOME_PAGE_ID_PREFIX}-form_output_metrics", "data"),
-    ],
-)
-def create_pie_graph(form_agg_data, form_metrics):
-    return create_cores_memory_pie_graphic(form_agg_data, form_metrics)
+# @HOME_PAGE.callback(
+#     Output("pie_graph", "figure"),
+#     [
+#         Input(f"{HOME_PAGE_ID_PREFIX}-form_aggregate_data", "data"),
+#         Input(f"{HOME_PAGE_ID_PREFIX}-form_output_metrics", "data"),
+#     ],
+# )
+# def create_pie_graph(form_agg_data, form_metrics):
+#     return create_cores_memory_pie_graphic(form_agg_data, form_metrics)
 
 
-# FIXME: looks weird with 0 emissions
-@HOME_PAGE.callback(
-    Output("barPlotComparison", "figure"),
-    [
-        Input(f"{HOME_PAGE_ID_PREFIX}-form_output_metrics", "data"),
-        Input("versioned_data", "data"),
-    ],
-)
-def create_bar_chart(form_metrics, versioned_data):
-    if versioned_data is not None:
-        versioned_data = SimpleNamespace(**versioned_data)
-        return create_ci_bar_chart_graphic(form_metrics, versioned_data)
-    return None
+# # FIXME: looks weird with 0 emissions
+# @HOME_PAGE.callback(
+#     Output("barPlotComparison", "figure"),
+#     [
+#         Input(f"{HOME_PAGE_ID_PREFIX}-form_output_metrics", "data"),
+#         Input("versioned_data", "data"),
+#     ],
+# )
+# def create_bar_chart(form_metrics, versioned_data):
+#     if versioned_data is not None:
+#         versioned_data = SimpleNamespace(**versioned_data)
+#         return create_ci_bar_chart_graphic(form_metrics, versioned_data)
+#     return None
 
 
-@HOME_PAGE.callback(
-    Output("barPlotComparison_cores", "figure"),
-    [
-        Input(f"{HOME_PAGE_ID_PREFIX}-form_aggregate_data", "data"),
-        Input("versioned_data", "data"),
-    ],
-)
-def create_bar_chart_cores(form_agg_data, versioned_data):
-    if versioned_data is not None:
-        versioned_data = SimpleNamespace(**versioned_data)
-        if form_agg_data["coreType"] is None:
-            return go.Figure()
-        return create_cores_bar_chart_graphic(form_agg_data, versioned_data)
-    return None
+# @HOME_PAGE.callback(
+#     Output("barPlotComparison_cores", "figure"),
+#     [
+#         Input(f"{HOME_PAGE_ID_PREFIX}-form_aggregate_data", "data"),
+#         Input("versioned_data", "data"),
+#     ],
+# )
+# def create_bar_chart_cores(form_agg_data, versioned_data):
+#     if versioned_data is not None:
+#         versioned_data = SimpleNamespace(**versioned_data)
+#         if form_agg_data["coreType"] is None:
+#             return go.Figure()
+#         return create_cores_bar_chart_graphic(form_agg_data, versioned_data)
+#     return None
 
 
 ## OUTPUT SUMMARY

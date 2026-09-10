@@ -6,7 +6,6 @@
     }
 
     .fullPage {
-        width: 95%;
         margin: 0 auto;
     }
 
@@ -67,7 +66,7 @@
 
     .input-form {
         margin-right: 12px;
-        width: calc((30%) - (10px));
+        width: calc((28%) - (10px));
     }
 
     .ai-input-forms {
@@ -185,7 +184,7 @@
     */
 
     .first-output {
-        width:calc((70%) - (3px));
+        width:calc((72%) - (3px));
     }
 
     .two-graphs-box {

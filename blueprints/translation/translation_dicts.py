@@ -360,6 +360,9 @@ TRANSLATIONS_DICT = {
 
     #### GRAPHS ####
 
+    "Manufacturing_impacts_vs_usage":{
+        "en": 'Manufacturing impacts VS Usage'
+    },
     "Computing_cores_VS_Memory": {
         "en": 'Computing cores VS Memory',
     },
@@ -445,7 +448,7 @@ TRANSLATIONS_DICT = {
         
     },
     "Energy_needed": {
-        "en": "Energy needed",
+        "en": "Energy used",
         
     },
     "Carbon_sequestration": {
@@ -467,6 +470,15 @@ TRANSLATIONS_DICT = {
     "of_a_flight": {
         "en": "of a flight",
         "fr": "d'un vol",
+    },
+    "comparison_heading": {
+        "en": "Comparisons",
+    },
+    "suggestion_heading":{
+        "en": "Questions/Suggestions?"
+    },
+    "suggestions": {
+        "en": "If you have any suggestions or questions about the tool, you can open an issue on Github."
     },
 
     #### METHODOLOGY ####

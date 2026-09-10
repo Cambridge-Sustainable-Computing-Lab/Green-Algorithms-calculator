@@ -6,7 +6,6 @@
     }
 
     .fullPage {
-        width: 95%;
         margin: 0 auto;
     }
 
@@ -108,10 +107,6 @@
         padding-right: 0;
         padding-left: 0;
         /*margin-bottom: 0;*/
-    }
-
-    .pie-graph {
-        margin-top: 100px;
     }
 
     /*
