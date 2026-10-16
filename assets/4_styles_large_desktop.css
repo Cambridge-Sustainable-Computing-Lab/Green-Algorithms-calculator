@@ -6,7 +6,10 @@
     }
 
     .fullPage {
-        margin: 0 auto;
+        width: 1200px;
+        min-width: 1200px;
+        max-width: 1200px;
+        flex-basis: 1200px;
     }
 
     .page_content{
@@ -99,22 +102,10 @@
     }
 
     /*
-    .one-of-two-graphs:first-of-type {
-        margin-right: 20px;
-        margin-bottom: 0;
-    }
-
-    .one-of-two-graphs:last-of-type {
-        padding-right: 0;
-        padding-left: 0;
-        /*margin-bottom: 0;*/
-    } */
-
-    /*
     ---------------------------------- FOOTER ----------------------------------------
     */
 
     .data-questions .container {
         flex-grow:1;
     }
-
+}

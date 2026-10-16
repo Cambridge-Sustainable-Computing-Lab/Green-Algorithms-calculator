@@ -6,7 +6,10 @@
     }
 
     .fullPage {
-        margin: 0 auto;
+        width: 1024px;
+        min-width: 1024px;
+        max-width: 1024px;
+        flex-basis: 1024px;
     }
 
     .page_content{

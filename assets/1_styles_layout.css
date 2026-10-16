@@ -18,8 +18,21 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
+    width: 375px;
+    min-width: 375px;
+    max-width: 375px;
+    flex: 0 0 375px;
+    margin: 0 auto;
     padding: 15px;
+}
+
+@media only screen and (min-width: 1001px) {
+    .fullPage {
+        width: 1024px;
+        min-width: 1024px;
+        max-width: 1024px;
+        flex-basis: 1024px;
+    }
 }
 
 .page_content {

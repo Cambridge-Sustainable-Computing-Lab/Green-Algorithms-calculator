@@ -6,6 +6,13 @@
         font-size: 57%;
     }
 
+    .fullPage {
+        width: 768px;
+        min-width: 768px;
+        max-width: 768px;
+        flex-basis: 768px;
+    }
+
     
     
     /*
