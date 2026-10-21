@@ -210,7 +210,7 @@ app.layout = dmc.MantineProvider(
                                 src=os.path.join(image_dir, "ga_logo_tree.svg"),
                                 id="ga_logo",
                                 className="header-logo",
-                                style={"width": "90px", "padding": "5px", "padding-bottom": "10px"},
+                                style={"width": "80px", "padding": "0px", "padding-bottom": "5px"},
                             ),
                             html.Div(
                                 [
@@ -352,6 +352,14 @@ app.layout = dmc.MantineProvider(
         ],
         className='fullPage'
     )
+)
+
+app.validation_layout = html.Div(
+    [
+        app.layout,
+        HOME_PAGE.layout,
+        AI_PAGE.layout,
+    ]
 )
 
 

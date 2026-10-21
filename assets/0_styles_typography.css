@@ -25,7 +25,7 @@ strong {
 
 h1 {
     font-size: 37px;
-    font-size: 3.7rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-bottom: 9px;
     text-align: left;
@@ -72,7 +72,7 @@ p:not(:last-of-type) {
     font-weight: 400;
     font-style: italic;
     font-size: 21px;
-    font-size: 2.1rem;
+    font-size: 2rem;
     letter-spacing: -0.02rem;
     margin-bottom: 0;
 }
@@ -87,9 +87,9 @@ p:not(:last-of-type) {
 }
 
 .change_version_text p div {
-    color: rgb(60, 60, 60);
+    color: #fff;
     text-decoration: underline;
-    font-size: 0.8em;
+    font-size: 1.5rem;
     font-style: normal;
 }
 
@@ -160,13 +160,13 @@ input, select, .Select, textarea {
     font-style: bold;
     font-size: 0.8em;
     text-align: center;
-    color: rgb(100, 100, 100);
+    color: #fff;
     /* Border of the icon */
     height: 1.1em;
     width: 1.2em;
     line-height: 1.1em;
     border-radius: 50%;
-    border: .5px solid rgb(100, 100, 100);
+    border: .5px solid #fff;
     /* Position of the icon */
     position: relative;
     left: 0.3em;

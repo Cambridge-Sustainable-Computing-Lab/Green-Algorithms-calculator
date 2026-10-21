@@ -1,9 +1,9 @@
 /* Large desktop Styles */
 @media only screen and (min-width: 1281px) {
 
-    body {
+    /* body {
         background-image: url("stripes_sym2.png");
-    }
+    } */
 
     .fullPage {
         width: 1200px;

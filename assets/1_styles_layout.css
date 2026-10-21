@@ -1,6 +1,6 @@
 body {
     background-color: #f2f2f2;
-    background-image: url("stripes_sym3.png");
+    /* background-image: url("stripes_sym3.png"); */
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -18,9 +18,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 375px;
+    /* width: 375px;
     min-width: 375px;
-    max-width: 375px;
+    max-width: 375px; */
     flex: 0 0 375px;
     margin: 0 auto;
     padding: 15px;
@@ -106,11 +106,13 @@ body {
 
 .header {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     gap: 15px;
     padding: 20px;
     margin-top: 10px;
     margin-bottom: 6px;
+    color: #fff;
+    background-color: #3d4d24;
 }
 
 .header_title {
@@ -140,19 +142,17 @@ body {
 
 .pages-menu {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     padding-left: 40px;
-    padding-top: 5px;
     /* margin-top: 3em; only if removing the horizontal rule between title and pages-menu */
 }
 
 .page-navlink {
     /* margin-left: 12px;
     margin-right: 12px; */
-    width: 100%;
+    width: max-content;
     text-align: center;
 }
 
@@ -161,26 +161,25 @@ body {
 }
 
 .navlink-label {
-    font-size: 2.8em;
+    font-size: 2rem;
 }
 
 .version_and_language_div {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
 /* VERSIONNING */
 
 #versions_div {
-    width: 100%;
+    width: max-content;
     display: flex;
     flex-direction: row;
+    margin-bottom: 0px;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
 }
 
 #app_versions_dropdown {
@@ -188,14 +187,14 @@ body {
 }
 
 .change_version_text {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 6px;
     cursor: pointer;
-    width: fit-content;
+    width: max-content;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
+    margin-left: 5px;
 }
 
 #data_version_tooltip .tooltip-icon {
@@ -224,10 +223,11 @@ body {
 /* LANGUAGE */
 
 #language_div {
-    width: 100%;
+    width: max-content;
     display: flex;
     flex-direction: row;
     margin-bottom: 0px;
+    margin-left: 21px;
     align-items: center;
     justify-content: center;
 }
