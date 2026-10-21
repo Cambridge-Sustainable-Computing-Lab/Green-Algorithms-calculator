@@ -6,8 +6,10 @@
     }
 
     .fullPage {
-        width: 95%;
-        margin: 0 auto;
+        width: 1024px;
+        min-width: 1024px;
+        max-width: 1024px;
+        flex-basis: 1024px;
     }
 
     .page_content{
@@ -22,6 +24,10 @@
         /*
     ---------------------------------- NAVBAR ----------------------------------------
     */
+
+    .header{
+        flex-direction: row;
+    }
     
     .Hr_div_header{
         width: 40em;
@@ -40,11 +46,7 @@
     }
 
     .navlink-label {
-        font-size: 2.9em;
-    }
-    
-    .version_and_language_div {
-        flex-direction: row;
+        font-size: 2rem;
     }
 
     #versions_div {
@@ -53,7 +55,7 @@
     }
 
     #language_div {
-        margin-right: auto;
+        margin-left: auto;
         width: fit-content;
     }
 
@@ -71,7 +73,7 @@
 
     .input-form {
         margin-right: 12px;
-        width: calc((33.3%) - (6px));
+        width: calc((28%) - (10px));
     }
 
     .ai-input-forms {
@@ -171,13 +173,11 @@
     */
 
     .caption-icons p:first-of-type {
-        font-size: 22px;
-        font-size: 2.2rem;
+        font-size: 2rem;
     }    
 
     .mini-box {
         margin-right: 12px;
-        height: 170px;
         padding-bottom: 25px;
     }    
 
@@ -186,25 +186,12 @@
         margin-right: 0;
     }    
 
-    /* We target the top row of mini-box(s) */
-    .mini-box:nth-of-type(1), .mini-box:nth-of-type(2) {
-        width: calc((50%) - (6px));
-    }    
-
-    /* We target the second row of mini-boxe(s) */
-    .mini-box:nth-of-type(n+3) {
-        width: calc((33%) - (8px));
-        flex-direction: column;
-        height: 260px;
-    }        
-
-
     /*
     ---------------------------------- FIRST OUTPUT ----------------------------------------
     */
 
     .first-output {
-        width:calc((66.6%) - (6px));
+        width:calc((72%) - (3px));
     }
 
     .two-graphs-box {
@@ -212,11 +199,10 @@
     }
 
 
-    .one-of-two-graphs:last-of-type {
+    /* .one-of-two-graphs:last-of-type {
         padding-right: 80px;
         padding-left: 80px;
-        /*margin-bottom: 0;*/
-    }
+    } */
 
 
     /*
@@ -233,7 +219,7 @@
     }
 
     .definitions .container {
-        height: calc((50%) - (12px));
+        height: max-content;
     }
 
     .methodology-container {

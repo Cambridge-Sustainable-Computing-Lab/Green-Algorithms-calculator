@@ -105,14 +105,7 @@ class MetricsBlueprint(DashBlueprint):
                     ),
 
                     self.carbon_footprint_details,
-                ],
-                className="container mini-box"
-            ),
 
-            #### ELECTRICITY CONSUMPTION ####
-
-            html.Div(
-                [
                     html.Div(
                         [
                             html.Img(
@@ -143,6 +136,15 @@ class MetricsBlueprint(DashBlueprint):
                 ],
                 className="container mini-box"
             ),
+
+            #### ELECTRICITY CONSUMPTION ####
+
+            # html.Div(
+            #     [
+                    
+            #     ],
+            #     className="container mini-box"
+            # ),
 
             #### TREE ABSOPRTION EQUIVALENT ####
 

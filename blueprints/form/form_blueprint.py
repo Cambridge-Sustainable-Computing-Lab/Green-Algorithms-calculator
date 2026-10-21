@@ -20,6 +20,7 @@ from blueprints.translation.translation_dicts import TRANSLATIONS_DICT
 appVersions_options = get_available_versions()
 
 custom_core_box_style = {'padding': '6px 24px', 'border': 'rgb(220, 220, 220)', 'border-radius': '10px', 'border-style': 'dashed', 'border-width': '2px'}
+use_case_options = ["calculate the emissions of my algorithm", "play around and explore computation's carbon footprint", "learn about carbon footprint of compute", "plan around possible carbon footprint of compute"]
 
 class FormBlueprint(DashBlueprint):
     '''
@@ -253,9 +254,23 @@ class FormBlueprint(DashBlueprint):
                     dcc.Store(id='form_aggregate_data'),
                     dcc.Store(id='form_output_metrics'),
 
+                    html.Div(
+                        [
+                            html.P("I want to "),
+                            dcc.Dropdown(
+                                id="use_case_dropdown",
+                                options=use_case_options,
+                                className='bottom-dropdown',
+                                clearable=False,
+                                value=use_case_options[0],
+                            ),
+                        ],
+                        className='use_case_dropdown_container',
+                    ),
+
                     #### FORM HEADER ####
 
-                    html.H2(translatable_div_text(title).embed(self)),
+                    html.H3(translatable_div_text(title).embed(self)),
                     html.Div(translatable_markdown_text(subtitle).embed(self)),
 
                     #### CONTINUOUS INFERENCE SCHEME ####
