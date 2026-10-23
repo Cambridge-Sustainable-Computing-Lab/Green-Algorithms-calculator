@@ -70,7 +70,7 @@ server = app.server
 HOME_PAGE.register(app, module='home', path='/', title='Green Algorithms - Classic view')
 AI_PAGE.register(app, module='ai', path='/ai', title='Green Algorithms - AI view')
 
-
+image_dir = os.path.join("assets", "images")
 
 ###################################################
 ## CREATE NAVBAR
@@ -204,16 +204,32 @@ app.layout = dmc.MantineProvider(
 
             html.Div(
                 [
-                    html.H1(translatable_div_text("Green Algorithms calculator").embed(app)),
-
-                    html.P(translatable_div_text("Subtitle").embed(app)),
-
                     html.Div(
                         [
-                            html.Hr(style={'background-color': 'rgb(60, 60, 60)'}),
+                            html.Img(
+                                src=os.path.join(image_dir, "ga_logo_tree.svg"),
+                                id="ga_logo",
+                                className="header-logo",
+                                style={"width": "80px", "padding": "0px", "padding-bottom": "5px"},
+                            ),
+                            html.Div(
+                                [
+                                    html.H1(translatable_div_text("Green Algorithms calculator").embed(app)),
+                                    html.P(translatable_div_text("Subtitle").embed(app)),
+                                ],
+                                className='header_title_container',
+                            ),
                         ],
-                        className='Hr_div_header',
+                        className='header_title',
+                        style={"display": "flex", "flex-direction": "row", "align-items": "center"},
                     ),
+                
+                    # html.Div(
+                    #     [
+                    #         html.Hr(style={'background-color': 'rgb(60, 60, 60)'}),
+                    #     ],
+                    #     className='Hr_div_header',
+                    # ),
 
                     pages_navbar,
 
@@ -221,6 +237,14 @@ app.layout = dmc.MantineProvider(
                         [
                             language_choice,
                             versions_choice,
+                            html.Div(
+                                html.A(
+                                    html.Button("Data and code", id='github-link-button', className='btn-download_csv',),
+                                    href='https://github.com/Cambridge-Sustainable-Computing-Lab/Green-Algorithms-calculator',
+                                    target="_blank",
+                                ),
+                                className='header-button-container'
+                            )
                         ],
                         className='version_and_language_div'
                     ),
@@ -228,38 +252,38 @@ app.layout = dmc.MantineProvider(
                 ],
                 className='container header'
             ),
-            
-            # TODO include outstanding issues and PRs
-            html.Div(
-                [
-                    html.H2(translatable_div_text("Some_news").embed(app)), # TODO align this left?
-
-                    html.P(translatable_div_text('Carbon_intensity_update').embed(app)),
-
-                    html.P(translatable_markdown_text('Release_message').embed(app)),
-
-                    html.P(translatable_markdown_text('Bugs_message').embed(app)),
-
-                    html.Div(
-                        [
-                            html.A(
-                                html.Button(translatable_div_text('More on the project website').embed(app), id='website-link-button'),
-                                href='https://www.green-algorithms.org',
-                                target="_blank",
-                                className='button-container'
-                            ),
-                        ],
-                        className='buttons-row'
-                    ),
-                ],
-                className='container footer'
-            ),
 
             #### PAGE CONTENT #####
             
             # Pages are registered manually above and their layout is inserted in the app
             # as suggested in the official documentation (https://dash.plotly.com/urls)
             dash.page_container,
+
+            # TODO include outstanding issues and PRs
+                        html.Div(
+                            [
+                                html.H2(translatable_div_text("Some_news").embed(app)), # TODO align this left?
+            
+                                html.P(translatable_div_text('Carbon_intensity_update').embed(app)),
+            
+                                html.P(translatable_markdown_text('Release_message').embed(app)),
+            
+                                html.P(translatable_markdown_text('Bugs_message').embed(app)),
+            
+                                html.Div(
+                                    [
+                                        html.A(
+                                            html.Button(translatable_div_text('More on the project website').embed(app), id='website-link-button'),
+                                            href='https://www.green-algorithms.org',
+                                            target="_blank",
+                                            className='button-container'
+                                        ),
+                                    ],
+                                    className='buttons-row'
+                                ),
+                            ],
+                            className='container footer'
+                        ),
 
             #### FOOTERS #####
 
@@ -278,16 +302,6 @@ app.layout = dmc.MantineProvider(
                         className='container footer'
                     ),
 
-                    ### QUESTIONS AND SUGGESTIONS ###
-
-                    html.Div(
-                        [
-                            html.H2(translatable_div_text('Questions_suggestions').embed(app)),
-
-                            html.Div(translatable_markdown_text("Questions_suggestions_text").embed(app)),
-                        ],
-                        className='container footer'
-                    )
                 ],
                 className='super-section data-questions'
             ),
@@ -338,6 +352,14 @@ app.layout = dmc.MantineProvider(
         ],
         className='fullPage'
     )
+)
+
+app.validation_layout = html.Div(
+    [
+        app.layout,
+        HOME_PAGE.layout,
+        AI_PAGE.layout,
+    ]
 )
 
 
