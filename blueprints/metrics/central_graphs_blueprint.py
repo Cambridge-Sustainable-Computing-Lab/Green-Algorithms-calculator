@@ -126,26 +126,6 @@ class CentralGraphsBlueprint(DashBlueprint):
                         #     ],
                         #     className="container pie-graphs-container",
                         # ),
-                        ## Location impact bar chart
-                        html.Div(
-                            [
-                                html.H3(
-                                    translatable_div_text(
-                                        "Location_impact_graphs_title"
-                                    ).embed(self)
-                                ),
-                                loading_wrapper(
-                                    dcc.Graph(
-                                        id="barPlotComparison",
-                                        className="graph-container",
-                                        config={"displaylogo": False},
-                                        figure=BLANK_FIGURE,
-                                        style={"margin-top": "20px"},
-                                    ),
-                                ),
-                            ],
-                            className="one-of-two-graphs",
-                        ),
                     ],
                     className="container central-graphs",
                 ),

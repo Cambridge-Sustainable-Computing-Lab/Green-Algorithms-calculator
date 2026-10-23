@@ -102,6 +102,29 @@ def get_home_page_layout():
                                 [
                                     html.H3(
                                         translatable_div_text(
+                                            "Location_impact_graphs_title"
+                                        ).embed(HOME_PAGE)
+                                    ),
+                                    loading_wrapper(
+                                        dcc.Graph(
+                                            id="barPlotComparison",
+                                            className="graph-container",
+                                            config={"displaylogo": False},
+                                            figure=BLANK_FIGURE,
+                                            style={
+                                                "width": "100%",
+                                                "max-width": "400px",
+                                                "margin": "20px auto 0",
+                                            },
+                                        )
+                                    ),
+                                ],
+                                className="container location-impact-graph-container",
+                            ),
+                            html.Div(
+                                [
+                                    html.H3(
+                                        translatable_div_text(
                                             "Questions_suggestions"
                                         ).embed(HOME_PAGE)
                                     ),
