@@ -140,7 +140,7 @@ class CoreImpactsBlueprint(DashBlueprint):
                     className="core-metrics-container"
                 ),
             ],
-            className="super-section mini-boxes-core",
+            className="container super-section mini-boxes-core",
         )
 
     def _define_callbacks(self):

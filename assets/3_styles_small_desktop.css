@@ -6,7 +6,7 @@
     }
 
     .fullPage {
-        width: 95%;
+        width: 1100px;
         margin: 0 auto;
     }
 
@@ -70,7 +70,7 @@
 
     .input-form {
         margin-right: 12px;
-        width: calc((33.3%) - (6px));
+        width: calc((30.3%) - (6px));
     }
 
     .ai-input-forms {
@@ -96,19 +96,19 @@
 
     .form-row .box-fields,
     .form-row .radio-and-field,
-    .form-row > input[type = 'number'] {
+    /* .form-row > input[type = 'number'] {
         width: 91%;
-    }
+    } */
 
     /* CONTINUOUS INFERENCE SCHEME */
 
     .continuous-switcher {
-        width: 93%
+        width: 100%
     }
 
-    .input_data_time-section input:first-of-type {
+    /* .input_data_time-section input:first-of-type {
         margin-right:4px;
-    }
+    } */
 
     .input_data_time-section > input[type = 'number'],
     .input_data_time-section .box-fields {
@@ -203,7 +203,7 @@
     */
 
     .first-output {
-        width:calc((66.6%) - (6px));
+        width:calc((69.4%) - (6px));
     }
 
     .two-graphs-box {

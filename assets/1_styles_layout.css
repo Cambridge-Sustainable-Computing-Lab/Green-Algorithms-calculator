@@ -47,7 +47,7 @@ body {
     border-radius: 5px;
     background-color: #f9f9f9;
     margin: 6px 0;
-    padding: 25px;
+    padding: 20px;
     box-shadow: 2px 2px 2px lightgrey;
 }
 
@@ -121,6 +121,7 @@ body {
 .header-right{
     display: flex;
     flex-direction: column;
+    margin-left: 10px;
 }
 
 /*
@@ -356,7 +357,7 @@ hr {
 
 .form-row input[type='number'] {
     padding: 7px;
-    width: 92%;
+    width: 100%;
 }
 
 .form-row .tooltip {
@@ -365,7 +366,7 @@ hr {
 }
 
 .form-row .box-fields {
-    width: 92%;
+    width: 100%;
 }
 
 .bottom-dropdown {
@@ -388,7 +389,7 @@ hr {
 }
 
 .location-head-row .box-fields {
-    width: 92%;
+    width: 100%;
 }
 
 .location-head-row > label {
@@ -666,8 +667,8 @@ hr {
 }
 
 .style-icon {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     margin-top:0;
     margin-bottom:0;
 }
@@ -677,6 +678,13 @@ hr {
     justify-content: center;
     display: flex;
     flex-direction: column;
+}
+
+.core-metrics-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
 }
 
 
