@@ -1,6 +1,5 @@
 body {
     background-color: #f2f2f2;
-    background-image: url("stripes_sym3.png");
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: 100% 100%; /*700px;*/
@@ -94,11 +93,12 @@ body {
 */
 
 .header {
-    background-color: rgba(249, 249, 249,0.6);
-    padding-top: 38px;
-    padding-bottom: 5px;
+    background-color: #3d4d24;
+    /* padding-top: 38px; */
+    padding-bottom: 20px;
     margin-top: 10px;
     margin-bottom: 6px;
+    color: #fff;
 }
 
 .Hr_div_header{
@@ -107,19 +107,42 @@ body {
     width: 20em;
 }
 
+.header_title{
+    align-self: center;
+}
+
+.header-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header-right{
+    display: flex;
+    flex-direction: column;
+}
 
 /*
 ---------------------------------- NAVBAR ----------------------------------------
 */
 
 
-.pages-menu {
+.mode-switch-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     width: 100%;
-    /* margin-top: 3em; only if removing the horizontal rule between title and pages-menu */
+    gap: 12px;
+}
+
+.mode-switch-label {
+
+}
+
+.mode-toggle {
+    width: auto;
 }
 
 .page-navlink{
@@ -145,6 +168,24 @@ body {
     flex-direction: column;
 }
 
+/* TOGGLE */
+
+.daq-toggleswitch--light__indicator--on, .daq-toggleswitch--light__indicator--off {
+    display: none;
+}
+
+.eyGRar{
+    transform: translateX(16px) !important;
+}
+
+.daq-toggleswitch--light__label{
+    margin-bottom: 8px;
+}
+
+.gNOOla{
+    background: #98BF5A !important;
+}
+
 /* VERSIONNING */
 
 #versions_div {
@@ -152,7 +193,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
 }
 
 #app_versions_dropdown{
@@ -167,6 +208,16 @@ body {
     display:flex;
     align-items: center;
     justify-content: center;
+}
+
+.header .change_version_text,
+.header .change_version_text * {
+    color: #fff !important;
+}
+
+.header .change_version_text:hover,
+.header .change_version_text:hover * {
+    color: #fff !important;
 }
 
 #data_version_tooltip .tooltip-icon{
@@ -199,8 +250,8 @@ body {
     display: flex;
     flex-direction: row;
     margin-bottom: 0px;
-    align-items: center;
-    justify-content: center;
+    align-items: end;
+    justify-content: end;
 }
 
 #language_dropdown_div {
@@ -214,6 +265,18 @@ body {
 #language_dropdown .Select-multi-value-wrapper {
     width: 5.5em;
     height: 2.2em;
+}
+
+/* HEADER BUTTONS */
+
+.header-nav-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    gap: 12px;
+    margin-left: 180px;
 }
 
 /*

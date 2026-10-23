@@ -32,7 +32,7 @@ h1 {
 
 h2 {
     font-size: 28px;
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     margin-bottom: 11px;
 }
 
@@ -66,6 +66,11 @@ p:not(:last-of-type) {
 ---------------------------------- HEADER ----------------------------------------
 */
 
+.header_title_container h1,
+.header_title_container p {
+    text-align: left;
+}
+
 .header p {
     font-family: 'Ruda', sans-serif;
     font-weight: 400;
@@ -87,13 +92,18 @@ p:not(:last-of-type) {
 
 .change_version_text p div {
     color: rgb(60, 60, 60);
+    font-size: 0.9em;
     text-decoration: underline;
-    font-size: 0.8em;
     font-style: normal;
 }
 
 .change_version_text p:hover {
     color: rgb(80, 80, 80);
+}
+
+.header-right p{
+    font-size: 1em;
+    font-style: normal;
 }
 
 /*
@@ -155,13 +165,13 @@ input, select, .Select, textarea {
     font-style: bold;
     font-size: 0.8em;
     text-align: center;
-    color: rgb(100, 100, 100);
+    color: #fff;
     /* Border of the icon */
     height: 1.1em;
     width: 1.2em;
     line-height: 1.1em;
     border-radius: 50%;
-    border: .5px solid rgb(100, 100, 100);
+    border: .5px solid #fff;
     /* Position of the icon */
     position: relative;
     left: 0.3em;
@@ -319,7 +329,6 @@ blockquote {
 .text-italic {
     font-style: italic;
 }
-
 
 
 
