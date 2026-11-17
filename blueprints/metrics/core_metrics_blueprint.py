@@ -168,7 +168,7 @@ class CoreImpactsBlueprint(DashBlueprint):
                     className="core-metrics-container"
                 ),
             ],
-            className="core-metrics-wrapper",
+            className="container core-metrics-wrapper",
         )
 
     def _define_callbacks(self):

@@ -46,7 +46,7 @@ body {
 
     border-radius: 5px;
     background-color: #f9f9f9;
-    margin: 6px 0;
+    margin: 10px 0;
     padding: 20px;
     box-shadow: 2px 2px 2px lightgrey;
 }
@@ -688,7 +688,8 @@ hr {
 
 #import-result {
     /* margin-left: 10px; */
-    align-self: start
+    align-self: start;
+    margin: 10px 0;
 }
 
 #import-result .upload-data {
@@ -733,7 +734,7 @@ hr {
 
 #main-export-result{
     margin-top: -10px;
-    margin-right: 10px;
+    margin-right: -10px;
 }
 
 @media only screen and (max-width: 1131px) {
@@ -780,8 +781,8 @@ hr {
 }
 
 .style-icon {
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     margin-top:0;
     margin-bottom:0;
 }
@@ -812,6 +813,8 @@ hr {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 5px;
+    width: 100%;
 }
 
 .central-box{

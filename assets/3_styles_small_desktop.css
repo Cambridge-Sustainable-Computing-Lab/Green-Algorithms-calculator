@@ -70,7 +70,7 @@
 
     .input-form {
         margin-right: 12px;
-        width: calc((30.3%) - (6px));
+        width: calc((35%) - (6px));
     }
 
     .ai-input-forms {
@@ -171,7 +171,7 @@
 
     .caption-icons p:first-of-type {
         font-size: 22px;
-        font-size: 2.2rem;
+        font-size: 1.7rem;
     }    
 
     .mini-box {
@@ -204,7 +204,7 @@
 
     .first-output {
         justify-content: start;
-        width:calc((69.4%) - (6px));
+        width:calc((65%) - (6px));
     }
 
     .two-graphs-box {
@@ -222,14 +222,14 @@
         width: unset;
     }
 
-    .metrics-output{
+    .central-results-left{
         justify-content: start;
-        width: calc((60%) - (6px));
+        width: calc((65%) - (6px));
     }
 
     .central-results-right{
         justify-content: start;
-        width: calc((40%) - (6px));
+        width: calc((35%) - (6px));
         align-self: flex-start;
     }
 

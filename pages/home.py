@@ -90,12 +90,16 @@ def get_home_page_layout():
                         [
                             html.Div(
                                 [
-                                    import_export.embed(HOME_PAGE),
                                     core_metrics.embed(HOME_PAGE),
-                                    #### DYNAMIC GRAPHS ####
-                                    central_graphs.embed(HOME_PAGE),
+                                    html.Div(
+                                        [
+                                            #### DYNAMIC GRAPHS ####
+                                            central_graphs.embed(HOME_PAGE),
+                                        ],
+                                        className="container"
+                                    ),
                                 ],
-                                className="container metrics-output",
+                                className="central-results-left"
                             ),
                             html.Div(
                                 [
