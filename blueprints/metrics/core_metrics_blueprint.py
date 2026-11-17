@@ -62,7 +62,35 @@ class CoreImpactsBlueprint(DashBlueprint):
         return html.Div(
             [
                 dcc.Store(id="base_results"),
-                html.H3("Your computation results in approximately:"),
+                html.Div([
+                    html.H3("Your computation results in approximately:"),
+                    #### EXPORT DATA ####
+                    html.Div(
+                        [
+                            html.Div(
+                                [
+                                        html.Img(
+                                            src="/assets/images/arrow.png",
+                                            className="import-export-icon export-icon",
+                                            alt="Export results",
+                                        ),
+                                    html.P(
+                                        translatable_div_text(
+                                            "Share_your_results"
+                                        ).embed(self),
+                                        className="tooltip-text",
+                                    ),
+                                ],
+                                className="tooltip export-tooltip",
+                            ),
+                            dcc.Download(id="aggregate-data-csv"),
+                        ],
+                        # className="container footer import-export",
+                        id="export-result",
+                    ),
+                ],
+                className="core-metrics-header"
+                ),
                 html.Div(
                     [
                         #### ELECTRICITY CONSUMPTION ####
@@ -140,7 +168,7 @@ class CoreImpactsBlueprint(DashBlueprint):
                     className="core-metrics-container"
                 ),
             ],
-            className="container super-section mini-boxes-core",
+            className="core-metrics-wrapper",
         )
 
     def _define_callbacks(self):

@@ -79,7 +79,7 @@ class CentralGraphsBlueprint(DashBlueprint):
                         ),
                     ],
                     className="container inclusion-exclusion",
-                    style={"display": "flex", "flex-direction": "row", "align-items": "flex-start"}
+                    style={"display": "flex", "align-items": "flex-start"}
                 ),
                 html.Div(
                     [

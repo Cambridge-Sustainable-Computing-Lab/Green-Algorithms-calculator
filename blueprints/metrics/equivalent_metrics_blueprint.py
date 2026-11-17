@@ -38,87 +38,92 @@ class EquivalentsMetricsBlueprint(DashBlueprint):
                 [
                     dcc.Store(id="base_results"),
                     html.H2(translatable_div_text("comparison_heading").embed(self)),
-                    #### TREE ABSORPTION EQUIVALENT ####
                     html.Div(
                         [
-                            html.Img(
-                                src=os.path.join(image_dir, "logo_tree_1.svg"),
-                                id="logo_tree",
-                                className="style-icon",
-                                style={"padding": "15px", "padding-bottom": "0px"},
-                            ),
+                            #### TREE ABSORPTION EQUIVALENT ####
                             html.Div(
                                 [
-                                    loading_wrapper(html.Div(id="treeMonths_text")),
-                                    html.P(
-                                        translatable_div_text(
-                                            "Carbon_sequestration"
-                                        ).embed(self)
+                                    html.Img(
+                                        src=os.path.join(image_dir, "logo_tree_1.svg"),
+                                        id="logo_tree",
+                                        className="style-icon",
+                                        style={"padding": "15px", "padding-bottom": "0px"},
                                     ),
-                                ],
-                                className="caption-icons",
-                            ),
-                        ],
-                    ),
-                    #### CAR KILOMETERS EQUIVALENT ####
-                    html.Div(
-                        [
-                            html.Img(
-                                src=os.path.join(image_dir, "logo_car_3.svg"),
-                                id="logo_car",
-                                className="style-icon",
-                                style={"padding": "13px", "padding-bottom": "0px"},
-                            ),
-                            html.Div(
-                                [
-                                    loading_wrapper(html.Div(id="driving_text")),
-                                    html.P(
+                                    html.Div(
                                         [
-                                            translatable_div_text(
-                                                "in_a_passenger_car"
-                                            ).embed(self),
-                                            html.Span(
-                                                [
-                                                    html.Span(
-                                                        "i",
-                                                        className="tooltip-icon",
-                                                    ),
-                                                    html.Span(
-                                                        translatable_div_text(
-                                                            "in_a_passenger_car_tooltip"
-                                                        ).embed(self),
-                                                        className="tooltip-text",
-                                                    ),
-                                                ],
-                                                className="tooltip",
+                                            loading_wrapper(html.Div(id="treeMonths_text")),
+                                            html.P(
+                                                translatable_div_text(
+                                                    "Carbon_sequestration"
+                                                ).embed(self)
                                             ),
-                                        ]
+                                        ],
+                                        className="caption-icons",
                                     ),
                                 ],
-                                className="caption-icons",
                             ),
-                        ],
-                    ),
-                    #### PLANE TRIPS EQUIVALENT ####
-                    html.Div(
-                        [
-                            html.Img(
-                                src=os.path.join(image_dir, "logo_plane_1.svg"),
-                                id="logo_plane",
-                                className="style-icon",
-                                style={"padding": "4px", "padding-bottom": "0px"},
-                            ),
+                            #### CAR KILOMETERS EQUIVALENT ####
                             html.Div(
                                 [
-                                    loading_wrapper(html.Div(id="flying_text")),
-                                    html.P(id="flying_label"),
+                                    html.Img(
+                                        src=os.path.join(image_dir, "logo_car_3.svg"),
+                                        id="logo_car",
+                                        className="style-icon",
+                                        style={"padding": "13px", "padding-bottom": "0px"},
+                                    ),
+                                    html.Div(
+                                        [
+                                            loading_wrapper(html.Div(id="driving_text")),
+                                            html.P(
+                                                [
+                                                    translatable_div_text(
+                                                        "in_a_passenger_car"
+                                                    ).embed(self),
+                                                    html.Span(
+                                                        [
+                                                            html.Span(
+                                                                "i",
+                                                                className="tooltip-icon",
+                                                            ),
+                                                            html.Span(
+                                                                translatable_div_text(
+                                                                    "in_a_passenger_car_tooltip"
+                                                                ).embed(self),
+                                                                className="tooltip-text",
+                                                            ),
+                                                        ],
+                                                        className="tooltip",
+                                                    ),
+                                                ]
+                                            ),
+                                        ],
+                                        className="caption-icons",
+                                    ),
                                 ],
-                                className="caption-icons",
+                            ),
+                            #### PLANE TRIPS EQUIVALENT ####
+                            html.Div(
+                                [
+                                    html.Img(
+                                        src=os.path.join(image_dir, "logo_plane_1.svg"),
+                                        id="logo_plane",
+                                        className="style-icon",
+                                        style={"padding": "4px", "padding-bottom": "0px"},
+                                    ),
+                                    html.Div(
+                                        [
+                                            loading_wrapper(html.Div(id="flying_text")),
+                                            html.P(id="flying_label"),
+                                        ],
+                                        className="caption-icons",
+                                    ),
+                                ],
                             ),
                         ],
+                        className="equivalent-metrics-results",
                     ),
                 ],
-                className="equivalent-metrics-container",
+                className="container equivalent-metrics-container",
             )
         )
 

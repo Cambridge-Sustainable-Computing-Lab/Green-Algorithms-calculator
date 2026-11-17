@@ -203,6 +203,7 @@
     */
 
     .first-output {
+        justify-content: start;
         width:calc((69.4%) - (6px));
     }
 
@@ -215,6 +216,31 @@
         padding-right: 80px;
         padding-left: 80px;
         /*margin-bottom: 0;*/
+    }
+
+    .location-impact-graph-container{
+        width: unset;
+    }
+
+    .metrics-output{
+        justify-content: start;
+        width: calc((60%) - (6px));
+    }
+
+    .central-results-right{
+        justify-content: start;
+        width: calc((40%) - (6px));
+        align-self: flex-start;
+    }
+
+    .equivalent-metrics-results{
+    flex-direction: column;
+}
+
+    /* INCLUSION-EXCLUSION */
+
+    .inclusion-exclusion{
+        flex-direction: column;
     }
 
 

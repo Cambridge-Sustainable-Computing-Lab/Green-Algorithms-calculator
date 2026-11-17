@@ -219,8 +219,7 @@ input, select, .Select, textarea {
 }
 
 #import-result {
-    font-size: 22px;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
 }
 
 .error-message-title {

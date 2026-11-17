@@ -22,7 +22,6 @@ from blueprints.translation.translatable_markdown_text_blueprint import (
     translatable_markdown_text,
 )
 
-
 class ImportExportBlueprint(DashBlueprint):
     """
     When a csv is uploaded, the `dcc.Upload` component (id=upload-data) is
@@ -58,55 +57,31 @@ class ImportExportBlueprint(DashBlueprint):
                 dcc.Store(id="export-content"),
                 html.Div(
                     [
-                        #### EXPORT DATA ####
-                        html.Div(
-                            [
-                                html.Button(
-                                    translatable_div_text("Share_your_results").embed(
-                                        self
-                                    ),
-                                    id="btn-download_csv",
-                                    className="btn-download_csv",
-                                    type="button",
-                                ),
-                                dcc.Download(id="aggregate-data-csv"),
-                            ],
-                            # className="container footer import-export",
-                            id="export-result",
-                        ),
-                        #### IMPORT DATA ####
-                        html.Div(
-                            dcc.Upload(
-                                html.Div(
-                                    [
-                                        html.P(
-                                            translatable_markdown_text(
-                                                "Import_results"
-                                            ).embed(self)
-                                        ),
-                                        html.Div(
-                                            [
-                                                html.A(
-                                                    translatable_div_text(
-                                                        "drag_and_drop"
-                                                    ).embed(self),
-                                                    style={
-                                                        "font-size": "12px",
-                                                        "margin-top": "3px",
-                                                        "text-decoration": "underline",
-                                                    },
-                                                )
-                                            ],
-                                        ),
-                                    ],
-                                    role="button",
-                                    tabIndex=0,
-                                ),
-                                id="upload-data",
-                                className="upload-data",
-                            ),
-                            id="import-result",
-                        ),
+                        # #### EXPORT DATA ####
+                        # html.Div(
+                        #     [
+                        #         html.Div(
+                        #             [
+                        #                     html.Img(
+                        #                         src="/assets/images/arrow.png",
+                        #                         className="import-export-icon export-icon",
+                        #                         alt="Export results",
+                        #                     ),
+                        #                 html.P(
+                        #                     translatable_div_text(
+                        #                         "Share_your_results"
+                        #                     ).embed(self),
+                        #                     className="tooltip-text",
+                        #                 ),
+                        #             ],
+                        #             className="tooltip export-tooltip",
+                        #         ),
+                        #         dcc.Download(id="aggregate-data-csv"),
+                        #     ],
+                        #     # className="container footer import-export",
+                        #     id="export-result",
+                        # ),
+                        
                     ],
                     className="import-export-buttons",
                 ),

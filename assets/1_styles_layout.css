@@ -606,14 +606,12 @@ hr {
 }
 
 .import-result{
-    margin-bottom: 6px;
-    border-width: 2px;
-    border-style: dashed;
-    border-radius: 5px;
-    margin-left: 10px;
+    flex: 1 1 0;
+    min-width: 0;
 }
 
-.upload-data, .btn-download_csv{
+.upload-data,
+.btn-download_csv{
     cursor: pointer;
 }
 
@@ -622,21 +620,136 @@ hr {
     text-decoration: underline;
 }
 
-.btn-download_csv:visited{
-    color: #653096
+.btn-download_csv:visited {
+    color: #653096;
 }
 
-.import-export-buttons{
+#export-result,
+#import-result {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+#export-result {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+#export-result .btn-download_csv {
+    width: 100%;
+    min-height: 58px;
+    padding: 12px 20px;
+    border: 1px solid #3d4d24;
+    border-radius: 6px;
+    background-color: #3d4d24;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#export-result .export-tooltip {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#export-result .export-tooltip .btn-download_csv {
+    width: auto;
+    min-height: 0;
+    padding: 8px;
+    line-height: 0;
+}
+
+#export-result .export-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+#export-result .btn-download_csv:hover,
+#export-result .btn-download_csv:focus-visible {
+    border-color: #506631;
+    background-color: #506631;
+    color: #fff;
+}
+
+#export-result .btn-download_csv:active {
+    background-color: #2d3a1b;
+    border-color: #2d3a1b;
+}
+
+.import-export-icon{
+    width: 25px;
+    height: 25px;
+}
+
+#import-result {
+    /* margin-left: 10px; */
+    align-self: start
+}
+
+#import-result .upload-data {
+    width: 100%;
+    min-height: 58px;
+    padding: 12px 20px;
+    border: 2px dashed #98bf5a;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    color: rgb(60, 60, 60);
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#import-result .upload-data:hover,
+#import-result .upload-data:focus-within {
+    border-color: #3d4d24;
+    background-color: #eef4e6;
+}
+
+#import-result .upload-data p {
+    margin: 0;
+    font-weight: 600;
+}
+
+#import-result .upload-data a {
+    color: #3d4d24;
+    font-size: 0.75em;
+}
+
+.import-export-buttons {
     display: flex;
     flex-direction: row;
-
+    align-items: stretch;
+    gap: 12px;
     width: 100%;
 }
 
-.import-export-container{
-    width: 100%
+.import-export-container {
+    width: 100%;
 }
 
+#main-export-result{
+    margin-top: -10px;
+    margin-right: 10px;
+}
+
+@media only screen and (max-width: 1131px) {
+    .central-results {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .central-results-right {
+        display: contents;
+    }
+
+    #import-result {
+        order: -1;
+    }
+}
 
 /*
 ---------------------------------- MINI-BOX ----------------------------------------
@@ -680,6 +793,14 @@ hr {
     flex-direction: column;
 }
 
+/*
+---------------------------------- CORE-METRICS ----------------------------------------
+*/
+
+.core-metrics-wrapper{
+    width: 100%;
+}
+
 .core-metrics-container{
     display: flex;
     flex-direction: row;
@@ -687,6 +808,26 @@ hr {
     justify-content: space-around;
 }
 
+.core-metrics-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.central-box{
+    padding: 0px;
+}
+
+.equivalent-metrics-results{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.central-results-right{
+    width: 100%;
+}
 
 /*
 ---------------------------------- TWO-GRAPHS BOX ----------------------------------------
