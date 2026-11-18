@@ -492,9 +492,13 @@ TRANSLATIONS_DICT = {
 
     ### Header container
 
+    "Methodology_header": {
+        "en": "Methodology",
+    },
+
     "methodology_details_1": {
         "en": '''
-                🌱 More details about the methodology in the [methods paper](https://onlinelibrary.wiley.com/doi/10.1002/advs.202100707).
+                🌱 To learn more about what _is_ included and the formula, check out the Methodology section or the [methods paper](https://onlinelibrary.wiley.com/doi/10.1002/advs.202100707).
             ''',
         
     },

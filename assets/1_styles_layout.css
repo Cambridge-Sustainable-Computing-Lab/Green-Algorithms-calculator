@@ -264,6 +264,12 @@ body {
     display: flex;
 }
 
+#app_versions_dropdown .Select-value-label,
+#app_versions_dropdown .VirtualizedSelectOption,
+#app_versions_dropdown .Select-option {
+    color: #000;
+}
+
 #app_versions_dropdown .Select-multi-value-wrapper {
     width: 5.5em;
     height: 2.2em;
@@ -286,6 +292,12 @@ body {
 
 #language_dropdown .Select-value {
     display: flex;
+}
+
+#language_dropdown .Select-value-label,
+#language_dropdown .VirtualizedSelectOption,
+#language_dropdown .Select-option {
+    color: #000;
 }
 
 #language_dropdown .Select-multi-value-wrapper {
@@ -323,6 +335,40 @@ body {
 
 .tab-container .input-form {
     margin-right: 0px;
+}
+
+.methodology-panel {
+    width: 100%;
+}
+
+.methodology-summary {
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: left;
+    list-style-position: inside;
+}
+
+.methodology-summary::marker {
+    color: #98bf5a;
+}
+
+.methodology-container {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.formula {
+    box-shadow: none;
+}
+
+.definitions .container {
+    box-shadow: none;
+}
+
+#methodology_details_1-text_value {
+    margin-top: 15px;
 }
 
 .Hr_div {
@@ -898,7 +944,6 @@ hr {
 }
 
 .graph-container {
-    width: 100%;
     /*height: 100%;
     display: block;*/
     margin-top: 10px;
@@ -918,6 +963,10 @@ hr {
 /*
 ---------------------------------- DESCRIPTIONS ----------------------------------------
 */
+
+.formula{
+    box-shadow: none;
+}
 
 blockquote {
     border-left: 4px lightgrey solid;

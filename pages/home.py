@@ -100,7 +100,8 @@ def get_home_page_layout():
                                                     html.H3("What the calculator does not include?"),
                                                     html.P(
                                                         "Other environmental impact such as water use, e-waste produced, changes to land use on site of the computing facilities that could impact biodiversity and local populations."
-                                                    )
+                                                    ),
+                                                    html.P(translatable_markdown_text("methodology_details_1").embed(HOME_PAGE)),
                                                 ],
                                                 style={"padding-left": "10px"}
                                             ),
@@ -196,8 +197,6 @@ def get_home_page_layout():
                 ],
                 className="super-section first-output",
             ),
-            #### METHODOLOGY CONTENT ####
-            methodology_content.embed(HOME_PAGE),
             #### HOW TO REPORT ####
             html.Div(
                 [
@@ -247,6 +246,19 @@ def get_home_page_layout():
                     ),
                 ],
                 className="container core-comparison",
+            ),
+            #### METHODOLOGY CONTENT ####
+            methodology_content.embed(HOME_PAGE),
+            #### PUBLICATION ####
+            html.Div(
+                [
+                    # html.P(translatable_markdown_text("methodology_details_1").embed(HOME_PAGE)),
+
+                    html.P(translatable_markdown_text("methodology_details_2").embed(HOME_PAGE)),
+
+                    html.P(translatable_markdown_text("methodology_details_3").embed(HOME_PAGE))
+                ],
+                className='container text-italic'
             ),
         ],
         className="page_content",

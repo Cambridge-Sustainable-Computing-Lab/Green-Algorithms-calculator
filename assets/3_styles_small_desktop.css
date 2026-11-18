@@ -288,14 +288,12 @@
     */
     
     .report {
-        order: 1;
         margin-right: 10px;
         width: calc((45%) - (6px));
     }
 
     .core-comparison {
         width: calc((55%) - (6px));
-        order: 1;
     }
 
     /*
