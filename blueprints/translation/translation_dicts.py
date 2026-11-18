@@ -451,6 +451,13 @@ TRANSLATIONS_DICT = {
         "en": "Energy used",
         
     },
+    "manufacturing_impact": {
+        "en": "Manufacturing impact",
+            
+    },
+    "manufacturing_impact_tooltip": {
+        "en": "Represents GHGs emitted during the manufacture of the hardware used"
+    },
     "Carbon_sequestration": {
         "en": "Carbon sequestration",
         

@@ -86,6 +86,8 @@ def convertList_hex2rgba(hex_list):
 def get_cores_bar_layout():
     layout_bar = copy.deepcopy(PLOTS_LAYOUT)
     layout_bar["margin"]["t"] = 60
+    layout_bar["width"] = 500
+    layout_bar["height"] = 350
     layout_bar["xaxis"] = dict(
         color=MY_COLORS["fontColor"],
     )
@@ -287,12 +289,9 @@ def create_ci_bar_chart_graphic(form_metrics, versioned_data):
 
 def get_cores_memory_pie_chart_layout(aggregated_data):
     layout_pie = copy.deepcopy(PLOTS_LAYOUT)
-    layout_pie["margin"] = dict(l=0, r=0, b=0, t=60)
-    if aggregated_data["coreType"] == "CPU + GPU":
-        layout_pie["width"] = 120
-    else:
-        layout_pie["width"] = 120
-        layout_pie["margin"]["t"] = 30
+    layout_pie["margin"] = dict(l=0, r=0, b=0, t=0)
+    layout_pie["width"] = 220
+    layout_pie["height"] = 340
     return layout_pie
 
 
@@ -377,8 +376,9 @@ def create_cores_memory_pie_graphic(form_agg_data, form_metrics):
 
 def get_manufacturing_carbon_pie_chart_layout():
     layout_pie = copy.deepcopy(PLOTS_LAYOUT)
-    layout_pie["margin"] = dict(l=0, r=0, b=0, t=40)
-    layout_pie["width"] = 120
+    layout_pie["margin"] = dict(l=0, r=0, b=0, t=0)
+    layout_pie["width"] = 220
+    layout_pie["height"] = 320
     return layout_pie
 
 

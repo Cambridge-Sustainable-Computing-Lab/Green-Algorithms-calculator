@@ -30,7 +30,7 @@ body {
 .super-section {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -122,6 +122,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
+    min-width: fit-content;
 }
 
 /*
@@ -144,6 +145,31 @@ body {
 
 .mode-toggle {
     width: auto;
+}
+
+.mantine-SegmentedControl-root {
+    margin-bottom: 10px;
+    max-width: min-content;
+    align-self: end;
+    background-color: #fff;
+}
+
+#mode-toggle .mantine-SegmentedControl-label {
+    color: #000 !important;
+    font-size: 1em;
+    font-weight: unset;
+}
+
+#mode-toggle .mantine-SegmentedControl-indicator {
+    background-color: #98bf5a;
+}
+
+#mode-toggle .mantine-SegmentedControl-control[data-active="true"] {
+    color: #000;
+}
+
+#mode-toggle .mantine-SegmentedControl-control[data-active="true"] .mantine-SegmentedControl-label {
+    color: #000 !important;
 }
 
 .page-navlink{
@@ -231,7 +257,6 @@ body {
     position: absolute;
     right: -8em;
     z-index: 1;
-    font-size: 0.6em;
 }
 
 /* To set the width of the dropdown */
@@ -556,6 +581,8 @@ hr {
     position: absolute;
     right: 1em;
     z-index: 1;
+    padding: 10px;
+    font-size: 1em;
 }
 
 .tooltip:hover .tooltip-text, .tooltip:active .tooltip-text {
@@ -807,6 +834,7 @@ hr {
     flex-direction: row;
     width: 100%;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .core-metrics-header{
@@ -817,6 +845,22 @@ hr {
     width: 100%;
 }
 
+.core-metrics-container .tooltip-icon{
+    color: rgb(60, 60, 60);
+    border-color: rgb(60, 60, 60);
+    margin-top: 6px;
+}
+
+#main-manufacturing_text{
+    font-weight: 600;
+}
+
+.caption-icons #main-manufacturing_impact-text_value{
+    font-size: 1.5rem;
+    position: relative;
+    top: -8px;
+}
+
 .central-box{
     padding: 0px;
 }
@@ -825,7 +869,17 @@ hr {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.equivalent-metrics-item{
+    margin-bottom: 10px;
+
+}
+
+.equivalent-metrics-item .tooltip-icon{
+    color: rgb(60, 60, 60);
+    border-color: rgb(60, 60, 60);
 }
 
 .central-results-right{
@@ -852,6 +906,9 @@ hr {
 
 .one-of-two-graphs {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .one-of-two-graphs:first-of-type {

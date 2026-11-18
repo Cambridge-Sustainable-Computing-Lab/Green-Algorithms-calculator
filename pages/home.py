@@ -83,11 +83,6 @@ def get_home_page_layout():
                 [
                     html.Div(
                         [
-                        ],
-                        className="super-section core-metrics",
-                    ),
-                    html.Div(
-                        [
                             html.Div(
                                 [
                                     core_metrics.embed(HOME_PAGE),
@@ -97,6 +92,21 @@ def get_home_page_layout():
                                             central_graphs.embed(HOME_PAGE),
                                         ],
                                         className="container"
+                                    ),
+                                    html.Div(
+                                        [
+                                            html.Div(
+                                                [
+                                                    html.H3("What the calculator does not include?"),
+                                                    html.P(
+                                                        "Other environmental impact such as water use, e-waste produced, changes to land use on site of the computing facilities that could impact biodiversity and local populations."
+                                                    )
+                                                ],
+                                                style={"padding-left": "10px"}
+                                            ),
+                                        ],
+                                        className="container inclusion-exclusion",
+                                        style={"display": "flex", "align-items": "flex-start", "flex-direction": "column"}
                                     ),
                                 ],
                                 className="central-results-left"
@@ -373,6 +383,7 @@ def forward_results_from_form_to_metrics(form_metrics):
     return {
         "energy_needed": form_metrics["energy_needed"],
         "carbonEmissions": form_metrics["carbonEmissions"],
+        "manufacturing_carbonEmissions": form_metrics["manufacturing_carbonEmissions"],
     }
 
 

@@ -30,6 +30,7 @@ from blueprints.translation.translatable_div_text_blueprint import translatable_
 from blueprints.translation.translatable_markdown_text_blueprint import (
     translatable_markdown_text,
 )
+from blueprints.translation.translation_dicts import TRANSLATIONS_DICT
 from pages.ai import AI_PAGE, AI_PAGE_ID_PREFIX
 from pages.home import HOME_PAGE, HOME_PAGE_ID_PREFIX
 from utils.handle_inputs import (
@@ -194,25 +195,22 @@ app.layout = dmc.MantineProvider(
                             ),
                             html.Div(
                                 [
-                                    html.Div(
-                                        [
-                                            html.P(
-                                                translatable_div_text('Classic-view').embed(app),
-                                                className='mode-switch-label',
-                                            ),
-                                            daq.ToggleSwitch(
-                                                id='mode-toggle',
-                                                value=False,
-                                                color='#ffffff',
-                                                size=40,
-                                                className='mode-toggle',
-                                            ),
-                                            html.P(
-                                                translatable_div_text('AI-view').embed(app),
-                                                className='mode-switch-label',
-                                            ),
+                                    dmc.SegmentedControl(
+                                        id='mode-toggle',
+                                        value='classic',
+                                        radius='md',
+                                        size='xl',
+                                        fullWidth=False,
+                                        data=[
+                                        {
+                                            'value': 'classic',
+                                            'label': TRANSLATIONS_DICT['Classic-view']['en'],
+                                        },
+                                        {
+                                            'value': 'ai',
+                                            'label': TRANSLATIONS_DICT['AI-view']['en'],
+                                        },
                                         ],
-                                        className='mode-switch-container',
                                     ),
                                     language_choice,
                                     versions_choice,
@@ -366,9 +364,26 @@ app.validation_layout = html.Div(
     Input('mode-toggle', 'value'),
     prevent_initial_call=True,
 )
-def navigate_to_mode(ai_mode: bool):
+def navigate_to_mode(mode: str):
     """Navigate to the selected calculator mode."""
-    return '/ai' if ai_mode else '/'
+    return '/ai' if mode == 'ai' else '/'
+
+@app.callback(
+    Output('mode-toggle', 'data'),
+    Input('language_dropdown', 'value'),
+)
+def translate_mode_toggle(language_id: str):
+    """Translate the labels displayed in the mode selector."""
+    return [
+        {
+            'value': 'classic',
+            'label': TRANSLATIONS_DICT['Classic-view'][language_id],
+        },
+        {
+            'value': 'ai',
+            'label': TRANSLATIONS_DICT['AI-view'][language_id],
+        },
+    ]
 
 ################## LANGUAGE CHOICE
     

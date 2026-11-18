@@ -50,87 +50,53 @@ class CentralGraphsBlueprint(DashBlueprint):
     def _get_layout(self):
         return html.Div(
             [
-                # self.import_export.embed(self),
                 #### DYNAMIC GRAPHS ####
                 html.Div(
                     [
+                        ## Computing Cores vs Memory Pie Chart
                         html.Div(
                             [
-                                html.P(
-                                    "What is included in the calculator?", style={"font-weight": "bold"}
+                                html.H3(
+                                    translatable_div_text(
+                                        "Computing_cores_VS_Memory"
+                                    ).embed(self)
                                 ),
-                                html.Img(
-                                    src=os.path.join(image_dir, "inclusion_static_graph.png"),
-                                    id="inclusion_graph",
-                                    className="inclusion-graph",
-                                    style={"width": "320px", "padding": "5px"},
-                                )
+                                loading_wrapper(
+                                    dcc.Graph(
+                                        id="pie_graph",
+                                        className="graph-container pie-graph",
+                                        config={"displaylogo": False},
+                                        figure=BLANK_FIGURE,
+                                    )
+                                ),
                             ],
-                            style={"width": "50%", "padding-right": "10px"}
+                            className="one-of-two-graphs",
                         ),
+                        ## Manuacturing vs Usage Pie Chart
                         html.Div(
                             [
-                                html.P("What the calculator does not include?", style={"font-weight": "bold"}),
-                                html.P(
-                                    "Other environmental impact such as water use, e-waste produced, changes to land use on site of the computing facilities that could impact biodiversity and local populations."
-                                )
+                                html.H3(
+                                    translatable_div_text(
+                                        "Manufacturing_impacts_vs_usage"
+                                    ).embed(self)
+                                ),
+                                loading_wrapper(
+                                    dcc.Graph(
+                                        id="manufacturing_pie_graph",
+                                        className="graph-container pie-graph",
+                                        config={"displaylogo": False},
+                                        figure=BLANK_FIGURE,
+                                    )
+                                ),
                             ],
-                            style={"width": "50%", "padding-left": "10px"}
+                            className="one-of-two-graphs",
                         ),
+                        
                     ],
-                    className="container inclusion-exclusion",
-                    style={"display": "flex", "align-items": "flex-start"}
-                ),
-                html.Div(
-                    [
-                        # html.Div(
-                        #     [
-                                ## Manuacturing vs Usage Pie Chart
-                                html.Div(
-                                    [
-                                        html.H3(
-                                            translatable_div_text(
-                                                "Manufacturing_impacts_vs_usage"
-                                            ).embed(self)
-                                        ),
-                                        loading_wrapper(
-                                            dcc.Graph(
-                                                id="manufacturing_pie_graph",
-                                                className="graph-container pie-graph",
-                                                config={"displaylogo": False},
-                                                figure=BLANK_FIGURE,
-                                            )
-                                        ),
-                                    ],
-                                    className="one-of-two-graphs",
-                                ),
-                                ## Computing Cores vs Memory Pie Chart
-                                html.Div(
-                                    [
-                                        html.H3(
-                                            translatable_div_text(
-                                                "Computing_cores_VS_Memory"
-                                            ).embed(self)
-                                        ),
-                                        loading_wrapper(
-                                            dcc.Graph(
-                                                id="pie_graph",
-                                                className="graph-container pie-graph",
-                                                config={"displaylogo": False},
-                                                figure=BLANK_FIGURE,
-                                            )
-                                        ),
-                                    ],
-                                    className="one-of-two-graphs",
-                                ),
-                        #     ],
-                        #     className="container pie-graphs-container",
-                        # ),
-                    ],
-                    className="container central-graphs",
+                    className="central-graphs",
                 ),
             ],
-            className="container central-box",
+            className="central-box",
         )
 
     ###################################################

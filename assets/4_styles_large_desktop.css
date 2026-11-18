@@ -86,29 +86,27 @@
         margin-right: 50px;
     }
 
+    #main-export-result {
+        margin-right: 4px;
+    }
+
+    .central-results-right .graph-container{
+        margin-bottom: 20px !important;
+    }
+    
+    .upload-data{
+        padding: 25px !important;
+    }
+
+    .suggestions-container{
+        padding-bottom: 24px;
+    }
 
     /*
     ---------------------------------- FIRST OUTPUT ----------------------------------------
     */
 
-    .one-of-two-graphs {
-        width: calc((50%) - (10px));
-    }
-
-    .one-of-two-graphs:first-of-type {
-        margin-right: 20px;
-        margin-bottom: 0;
-    }
-
-    .one-of-two-graphs:last-of-type {
-        padding-right: 0;
-        padding-left: 0;
-        /*margin-bottom: 0;*/
-    }
-
-    .pie-graph {
-        margin-top: 100px;
-    }
+    
 
     /*
     ---------------------------------- FOOTER ----------------------------------------

@@ -61,6 +61,7 @@ class EquivalentsMetricsBlueprint(DashBlueprint):
                                         className="caption-icons",
                                     ),
                                 ],
+                                className="equivalent-metrics-item",
                             ),
                             #### CAR KILOMETERS EQUIVALENT ####
                             html.Div(
@@ -100,6 +101,7 @@ class EquivalentsMetricsBlueprint(DashBlueprint):
                                         className="caption-icons",
                                     ),
                                 ],
+                                className="equivalent-metrics-item"
                             ),
                             #### PLANE TRIPS EQUIVALENT ####
                             html.Div(
@@ -118,6 +120,7 @@ class EquivalentsMetricsBlueprint(DashBlueprint):
                                         className="caption-icons",
                                     ),
                                 ],
+                                className="equivalent-metrics-item"
                             ),
                         ],
                         className="equivalent-metrics-results",

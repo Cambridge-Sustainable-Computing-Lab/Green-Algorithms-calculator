@@ -18,7 +18,6 @@
         flex-direction: unset;
     }
 
-
         /*
     ---------------------------------- NAVBAR ----------------------------------------
     */
@@ -204,18 +203,16 @@
 
     .first-output {
         justify-content: start;
+        align-items: start;
         width:calc((65%) - (6px));
     }
 
+    /* .one-of-two-graphs {
+        flex-direction: column;
+    } */
+
     .two-graphs-box {
         flex-grow: 1;
-    }
-
-
-    .one-of-two-graphs:last-of-type {
-        padding-right: 80px;
-        padding-left: 80px;
-        /*margin-bottom: 0;*/
     }
 
     .location-impact-graph-container{
@@ -224,7 +221,20 @@
 
     .central-results-left{
         justify-content: start;
+        align-self: start;
         width: calc((65%) - (6px));
+    }
+
+    #main-manufacturing_text{
+        margin-top: 15px;
+    }
+
+    .caption-icons #main-manufacturing_impact-text_value{
+        top: 0px;
+    }
+
+    #main-logo_factory{
+        margin-top: 6px !important; 
     }
 
     .central-results-right{
@@ -235,6 +245,11 @@
 
     .equivalent-metrics-results{
     flex-direction: column;
+
+    .equivalent-metrics-item{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
 }
 
     /* INCLUSION-EXCLUSION */

@@ -164,8 +164,64 @@ class CoreImpactsBlueprint(DashBlueprint):
                                 self.carbon_footprint_details,
                             ],
                         ),
+                        #### MANUFACTURING IMPACT ####
+                        html.Div(
+                            [
+                                html.Div(
+                                    [
+                                        html.Img(
+                                            src=os.path.join(
+                                                image_dir, "logo_factory.png"
+                                            ),
+                                            id="logo_factory",
+                                            className="style-icon",
+                                            style={
+                                                "margin": "0px",
+                                                "padding": "10px",
+                                                "margin-right": "4px",
+                                            },
+                                        ),
+                                        html.Div(
+                                            [
+                                                loading_wrapper(
+                                                    html.Div(id="manufacturing_text")
+                                                ),
+                                                html.Div(
+                                                    [
+                                                    html.P(
+                                                            translatable_div_text(
+                                                                "manufacturing_impact"
+                                                            ).embed(self)
+                                                        ),
+                                                        html.Span(
+                                                            [
+                                                                html.Span(
+                                                                    "i",
+                                                                    className="tooltip-icon",
+                                                                ),
+                                                                html.Span(
+                                                                    translatable_div_text(
+                                                                        "manufacturing_impact_tooltip"
+                                                                    ).embed(self),
+                                                                    className="tooltip-text",
+                                                                ),
+                                                            ],
+                                                            className="tooltip",
+                                                        )
+                                                    ],
+                                                    style={"display": "flex", "flex-direction": "row"}
+                                                ),
+                                            ],
+                                            className="caption-icons",
+                                        ),
+                                    ],
+                                    className="mini-box-main-content",
+                                ),
+                                # self.manufacturing_details,
+                            ]
+                        )
                     ],
-                    className="core-metrics-container"
+                    className="core-metrics-container",
                 ),
             ],
             className="container core-metrics-wrapper",
@@ -176,6 +232,7 @@ class CoreImpactsBlueprint(DashBlueprint):
             [
                 Output("carbonEmissions_text", "children"),
                 Output("energy_text", "children"),
+                Output("manufacturing_text", "children"),
             ],
             [
                 Input("base_results", "data"),
@@ -191,4 +248,7 @@ class CoreImpactsBlueprint(DashBlueprint):
             carbon_emissions = results_dict.get("carbonEmissions", 0)
             text_CE = utils.format_CE_text(carbon_emissions)
 
-            return text_CE, text_energy
+            manufacturing_impact = results_dict.get("manufacturing_carbonEmissions", 0)
+            text_manufacturing = utils.format_CE_text(manufacturing_impact)
+
+            return text_CE, text_energy, text_manufacturing
