@@ -492,6 +492,16 @@ TRANSLATIONS_DICT = {
 
     ### Header container
 
+    "Calculator_exclusions_header": {
+        "en": "What the calculator does not include?",
+    },
+
+    "Calculator_exclusions_text": {
+        "en": '''
+                Other environmental impact such as water use, e-waste produced, changes to land use on site of the computing facilities that could impact biodiversity and local populations.
+            ''',
+    },
+
     "Methodology_header": {
         "en": "Methodology",
     },

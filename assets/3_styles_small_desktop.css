@@ -147,6 +147,11 @@
         left: 0.3em;
         top: 0.05em;       
     }
+
+    #export-result .export-tooltip {
+        margin-left: -10px;
+        margin-top: -13px;
+    }
     
         
     /*
@@ -159,7 +164,9 @@
     }
     
     #import-result {
-        margin-left: 6px
+        margin: 10px;
+        margin-top: -5px;
+        max-height: min-content;
     }
 
 
@@ -207,6 +214,20 @@
         width:calc((65%) - (6px));
     }
 
+    .central-graphs{
+        box-shadow: none;
+    }
+
+    .core-metrics-wrapper{
+        box-shadow: none;
+        padding-top: 5px;
+        margin-top: -15px;
+    }
+
+    .inclusion-exclusion{
+        box-shadow: none;
+    }
+
     /* .one-of-two-graphs {
         flex-direction: column;
     } */
@@ -216,13 +237,49 @@
     }
 
     .location-impact-graph-container{
-        width: unset;
+        box-shadow: none;
+    }
+
+    .central-results{
+        height: 100%;
     }
 
     .central-results-left{
         justify-content: start;
         align-self: start;
         width: calc((65%) - (6px));
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        margin: 10px 0;
+        padding: 20px 0px 10px 0px;
+        box-shadow: 2px 2px 2px lightgrey;
+        height: stretch;
+    }
+
+    .central-results-right{
+        justify-content: start;
+        align-self: start;
+        width: calc((35%) - (6px));
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        margin: 10px 0;
+        padding: 20px 0px 10px 0px;
+        box-shadow: 2px 2px 2px lightgrey;
+        height: stretch;
+    }
+
+    .container .suggestions-container{
+        box-shadow: none;
     }
 
     #main-manufacturing_text{
@@ -237,10 +294,8 @@
         margin-top: 6px !important; 
     }
 
-    .central-results-right{
-        justify-content: start;
-        width: calc((35%) - (6px));
-        align-self: flex-start;
+    .equivalent-metrics-container{
+        box-shadow: none;
     }
 
     .equivalent-metrics-results{
@@ -313,15 +368,12 @@
 
     .about-us {
         order: 1;
-        margin-right: 12px;
-        width: calc((33.3%) - (8px));
+        width: 100%;
     }
 
     .data-questions {
-        order: 2;
-        margin-right: 12px;
-        width: calc((33.3%) - (8px));
-        align-content: stretch;
+        width: calc((30%) - (10px));
+        margin-right: 10px;
     }
 
     .show-stripes {
@@ -330,6 +382,6 @@
     }
 
     .citation {
-        order: 1;
+        width: 70%
     }
 }

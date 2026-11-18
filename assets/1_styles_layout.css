@@ -707,6 +707,8 @@ hr {
     display: flex;
     align-items: stretch;
     justify-content: center;
+    width: 100%;
+    max-height: min-content;
 }
 
 #export-result .btn-download_csv {
@@ -726,7 +728,7 @@ hr {
 #export-result .export-tooltip {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }
 
 #export-result .export-tooltip .btn-download_csv {
@@ -734,12 +736,6 @@ hr {
     min-height: 0;
     padding: 8px;
     line-height: 0;
-}
-
-#export-result .export-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
 }
 
 #export-result .btn-download_csv:hover,
@@ -754,7 +750,7 @@ hr {
     border-color: #2d3a1b;
 }
 
-.import-export-icon{
+.export-icon{
     width: 25px;
     height: 25px;
 }
@@ -886,7 +882,7 @@ hr {
 .core-metrics-header{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     padding-bottom: 5px;
     width: 100%;
 }
@@ -923,7 +919,7 @@ hr {
 
 }
 
-.equivalent-metrics-item .tooltip-icon{
+.page_content .tooltip-icon{
     color: rgb(60, 60, 60);
     border-color: rgb(60, 60, 60);
 }

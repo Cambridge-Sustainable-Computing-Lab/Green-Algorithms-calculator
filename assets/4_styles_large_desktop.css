@@ -99,13 +99,17 @@
     }
 
     .suggestions-container{
-        padding-bottom: 24px;
+        padding-bottom: 28px;
     }
 
     /*
-    ---------------------------------- FIRST OUTPUT ----------------------------------------
+    ---------------------------------- IMPORT-EXPORT ----------------------------------------
     */
 
+    #export-result .export-tooltip {
+        margin-left: -40px;
+        margin-top: -10px;
+    }
     
 
     /*

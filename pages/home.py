@@ -85,25 +85,54 @@ def get_home_page_layout():
                         [
                             html.Div(
                                 [
+                                    #### EXPORT DATA ####
+                                    html.Div(
+                                        [
+                                            html.Div(
+                                                [
+                                                        html.Img(
+                                                            src="/assets/images/arrow.png",
+                                                            className="export-icon",
+                                                            alt="Export results",
+                                                        ),
+                                                    html.P(
+                                                        translatable_div_text(
+                                                            "Share_your_results"
+                                                        ).embed(HOME_PAGE),
+                                                        className="tooltip-text",
+                                                    ),
+                                                ],
+                                                className="tooltip export-tooltip",
+                                            ),
+                                            dcc.Download(id="aggregate-data-csv"),
+                                        ],
+                                        # className="container footer import-export",
+                                        id="export-result",
+                                    ),
                                     core_metrics.embed(HOME_PAGE),
                                     html.Div(
                                         [
                                             #### DYNAMIC GRAPHS ####
                                             central_graphs.embed(HOME_PAGE),
                                         ],
-                                        className="container"
+                                        className="container central-graphs",
                                     ),
                                     html.Div(
                                         [
                                             html.Div(
                                                 [
-                                                    html.H3("What the calculator does not include?"),
+                                                    html.H3(
+                                                        translatable_markdown_text(
+                                                            "Calculator_exclusions_header"
+                                                        ).embed(HOME_PAGE)
+                                                    ),
                                                     html.P(
-                                                        "Other environmental impact such as water use, e-waste produced, changes to land use on site of the computing facilities that could impact biodiversity and local populations."
+                                                        translatable_markdown_text(
+                                                            "Calculator_exclusions_text"
+                                                        ).embed(HOME_PAGE)
                                                     ),
                                                     html.P(translatable_markdown_text("methodology_details_1").embed(HOME_PAGE)),
                                                 ],
-                                                style={"padding-left": "10px"}
                                             ),
                                         ],
                                         className="container inclusion-exclusion",
@@ -187,6 +216,7 @@ def get_home_page_layout():
                                             ),
                                         ],
                                         className="container suggestions-container",
+                                        style={"box-shadow": "none"},
                                     ),
                                 ],
                                 className='central-results-right',

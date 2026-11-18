@@ -188,8 +188,8 @@
     }
 
     #export-result {
-        margin-right: 4px;
-        width: calc((50%) - (4px));
+        margin-bottom: -40px;
+        margin-left: -5px;
     }
 
     #import-result {
@@ -229,21 +229,12 @@
     }
 
     /*
-    ---------------------------------- FIRST OUTPUT ----------------------------------------
+    ---------------------------------- CORE-METRICS ----------------------------------------
     */
 
-    /* .one-of-two-graphs {
-        width: calc((50%) - (10px));
+    .core-metrics-container {
+        padding-top: 15px;
     }
-
-    .one-of-two-graphs:first-of-type {
-        margin-right: 20px;
-        margin-bottom: 0;
-    } */
-
-    /* .pie-graph {
-        margin-top: 70px;
-    } */
 
     /*
     ---------------------------------- MAP AND DEFINITIONS ----------------------------------------
@@ -272,25 +263,7 @@
         align-items: stretch;
     }
 
-    .data-questions .container:first-of-type {
-        margin-right: 12px;
-        width: calc((40%) - (6px));
-    }
-
-    .data-questions .container:last-of-type {
-        width: calc((60%) - (6px));
-    }
-
-    .about-us {
-        margin-right: 12px;
-        width: calc((55%) - (6px));
-    }
-
     .show-stripes {
         width: calc((45%) - (6px));
-    }
-
-    .citation {
-        order: 1;
     }
 }

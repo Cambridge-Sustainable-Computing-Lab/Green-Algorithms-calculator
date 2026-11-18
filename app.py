@@ -245,35 +245,35 @@ app.layout = dmc.MantineProvider(
             # as suggested in the official documentation (https://dash.plotly.com/urls)
             dash.page_container,
 
-            # TODO include outstanding issues and PRs
-                        html.Div(
-                            [
-                                html.H2(translatable_div_text("Some_news").embed(app)), # TODO align this left?
-            
-                                html.P(translatable_div_text('Carbon_intensity_update').embed(app)),
-            
-                                html.P(translatable_markdown_text('Release_message').embed(app)),
-            
-                                html.P(translatable_markdown_text('Bugs_message').embed(app)),
-            
-                                html.Div(
-                                    [
-                                        html.A(
-                                            html.Button(translatable_div_text('More on the project website').embed(app), id='website-link-button'),
-                                            href='https://www.green-algorithms.org',
-                                            target="_blank",
-                                            className='button-container'
-                                        ),
-                                    ],
-                                    className='buttons-row'
-                                ),
-                            ],
-                            className='container footer'
-                        ),
-
             #### FOOTERS #####
 
             # TODO revisit the footer
+
+            # TODO include outstanding issues and PRs
+            html.Div(
+                [
+                    html.H2(translatable_div_text("Some_news").embed(app)), # TODO align this left?
+
+                    html.P(translatable_div_text('Carbon_intensity_update').embed(app)),
+
+                    html.P(translatable_markdown_text('Release_message').embed(app)),
+
+                    html.P(translatable_markdown_text('Bugs_message').embed(app)),
+
+                    html.Div(
+                        [
+                            html.A(
+                                html.Button(translatable_div_text('More on the project website').embed(app), id='website-link-button'),
+                                href='https://www.green-algorithms.org',
+                                target="_blank",
+                                className='button-container'
+                            ),
+                        ],
+                        className='buttons-row'
+                    ),
+                ],
+                className='container footer'
+            ),
         
             html.Div(
                 [
@@ -320,21 +320,6 @@ app.layout = dmc.MantineProvider(
 
             # TODO add funders logos
 
-            #### SHOW YOUR STRIPES ####
-
-            # html.Div(
-            #     [
-            #         html.H2(translatable_div_text("ShowYourStripes").embed(app)),
-
-            #         html.Div(translatable_markdown_text("ShowYourStripes_text").embed(app)),
-
-            #         html.Div(translatable_markdown_text("More_on").embed(app)),
-                    
-            #         html.Div(translatable_markdown_text("Additional_credits").embed(app)),
-
-            #     ],
-            #     className='container show-stripes footer'
-            # ),
         ],
         className='fullPage'
     )
