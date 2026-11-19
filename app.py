@@ -178,7 +178,7 @@ app.layout = dmc.MantineProvider(
                             html.Div(
                                 [
                                     html.Img(
-                                        src=os.path.join(image_dir, "ga_logo_tree.svg"),
+                                        src=os.path.join(image_dir, "ga_logo_tree.png"),
                                         id="ga_logo",
                                         className="header-logo",
                                         style={"width": "80px", "padding": "0px", "padding-bottom": "5px", "margin-right": "10px"},
