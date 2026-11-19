@@ -95,7 +95,7 @@ TRANSLATIONS_DICT = {
     "Home_form_subtitle": {
         "en": '''
                 To understand how each parameter impacts your environmental footprint, 
-                check out the formula below and the [methods article](https://onlinelibrary.wiley.com/doi/10.1002/advs.202100707)
+                check out the Methodology section below and the [methods article](https://onlinelibrary.wiley.com/doi/10.1002/advs.202100707)
             ''',
         
     },
