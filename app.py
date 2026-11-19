@@ -19,6 +19,7 @@ import os
 import dash
 import dash_daq as daq
 import dash_mantine_components as dmc
+from dash_iconify import DashIconify
 from dash import _dash_renderer, ctx, dcc, html
 from dash.dependencies import Input, Output, State
 from dash_extensions.enrich import DashProxy
@@ -321,6 +322,60 @@ app.layout = dmc.MantineProvider(
             #### FUNDERS ####
 
             # TODO add funders logos
+
+            #### COMMON FOOTER ####
+
+            html.Footer(
+                [
+                    html.Div(
+                        [
+                            html.A(
+                                [
+                                    DashIconify(
+                                        icon="fa6-brands:github",
+                                        width=20,
+                                        height=20,
+                                    ),
+                                    html.P("GITHUB", style={'font-weight': '700', 'margin-top': '3px'}),
+                                ],
+                                href="https://github.com/Cambridge-Sustainable-Computing-Lab/Green-Algorithms-calculator",
+                                target="_blank",
+                                rel="noopener noreferrer",
+                                className="footer-social-link",
+                                title="GitHub",
+                            ),
+                            html.A(
+                                html.Img(
+                                    src="/assets/images/License-CC BY 4.0-lightgrey.svg",
+                                    alt="Licensed under CC BY 4.0",
+                                    className="footer-license-badge",
+                                ),
+                                href="https://creativecommons.org/licenses/by/4.0/",
+                                target="_blank",
+                                rel="noopener noreferrer",
+                                className="footer-license-link",
+                                title="Creative Commons Attribution 4.0 International",
+                            ),
+                        ],
+                        className="footer-social-icons",
+                    ),
+                    html.Div(
+                        [
+                            "© 2026 ",
+                            html.A(
+                                "Cambridge Sustainable Computing Lab",
+                                href="https://cam-sustainablecomputing.org",
+                                target="_blank",
+                                rel="noopener noreferrer",
+                                className="footer-copyright-link",
+                                style={'color': '#98bf5a', 'font-size': '1em'},
+                            ),
+                        ],
+                        className="footer-copyright",
+                    ),
+                ],
+                className="shared-footer",
+            ),
 
         ],
         className='fullPage'

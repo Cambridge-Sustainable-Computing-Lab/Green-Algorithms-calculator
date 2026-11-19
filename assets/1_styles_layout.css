@@ -989,6 +989,65 @@ blockquote {
     background-color: rgba(249, 249, 249,0.6);
 }
 
+.shared-footer {
+    order: 999;
+    width: 100%;
+    margin-top: 10px;
+    padding: 40px 50px;
+    border-radius: 5px;
+    background-color: #3d4d24;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-social-link,
+.footer-social-link:visited,
+.footer-social-link:hover {
+    color: #fff;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: left;
+    gap: 7px;
+}
+
+.footer-license-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-license-badge {
+    display: block;
+    height: 20px;
+    width: auto;
+}
+
+.footer-copyright {
+    color: #fff;
+    text-align: center;
+}
+
+.footer-copyright-link,
+.footer-copyright-link:visited {
+    text-decoration: none;
+}
+
+.footer-copyright-link:hover,
+.footer-copyright-link:focus-visible {
+    text-decoration: underline;
+}
+
 .footnote {
     align-self: flex-start;
 }
