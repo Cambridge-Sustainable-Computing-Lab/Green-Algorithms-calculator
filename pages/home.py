@@ -59,7 +59,6 @@ form = FormBlueprint(
 
 methodology_content = MethodologyBlueprint(id_prefix=HOME_PAGE_ID_PREFIX)
 
-# metrics = MetricsBlueprint(id_prefix=HOME_PAGE_ID_PREFIX)
 core_metrics = CoreImpactsBlueprint(id_prefix=f"{HOME_PAGE_ID_PREFIX}")
 equivalents_metrics = EquivalentsMetricsBlueprint(id_prefix=f"{HOME_PAGE_ID_PREFIX}")
 
