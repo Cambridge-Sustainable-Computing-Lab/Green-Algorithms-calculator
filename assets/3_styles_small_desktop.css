@@ -181,10 +181,6 @@
         flex-direction: row;
     }
 
-    .caption-icons #ai-manufacturing_impact-text_value {
-        top: 0px;
-    }
-
 
     /*
     ---------------------------------- MINI-BOX ----------------------------------------
@@ -222,7 +218,7 @@
 
 
     /*
-    ---------------------------------- FIRST OUTPUT ----------------------------------------
+    ---------------------------------- OUTPUT ----------------------------------------
     */
 
     .first-output {
@@ -313,6 +309,10 @@
 
     #main-manufacturing_text {
         margin-top: 15px;
+    }
+
+    .caption-icons #ai-manufacturing_impact-text_value {
+        top: 0px;
     }
 
     .caption-icons #main-manufacturing_impact-text_value {

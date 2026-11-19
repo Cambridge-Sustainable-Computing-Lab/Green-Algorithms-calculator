@@ -139,10 +139,6 @@ body {
     gap: 12px;
 }
 
-.mode-switch-label {
-
-}
-
 .mode-toggle {
     width: auto;
 }
@@ -785,11 +781,6 @@ hr {
     display: flex;
     flex-direction: row;
 }
-
-/* #main-export-result{
-    margin-top: -10px;
-    margin-right: -10px;
-} */
 
 @media only screen and (max-width: 1131px) {
     .central-results {
