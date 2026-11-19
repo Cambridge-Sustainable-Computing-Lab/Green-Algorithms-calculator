@@ -10,7 +10,7 @@
         margin: 0 auto;
     }
 
-    .page_content{
+    .page_content {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -18,11 +18,11 @@
         flex-direction: unset;
     }
 
-        /*
+    /*
     ---------------------------------- NAVBAR ----------------------------------------
     */
-    
-    .Hr_div_header{
+
+    .Hr_div_header {
         width: 40em;
     }
 
@@ -30,18 +30,18 @@
         flex-direction: row;
     }
 
-    #Ai-navlink{
+    #Ai-navlink {
         text-align: left;
     }
-    
-    #Home-navlink{
+
+    #Home-navlink {
         text-align: right;
     }
 
     .navlink-label {
         font-size: 2.9em;
     }
-    
+
     .version_and_language_div {
         flex-direction: row;
     }
@@ -59,7 +59,7 @@
         font-size: 1.2em;
     }
 
-    #data_version_tooltip .tooltip-text{
+    #data_version_tooltip .tooltip-text {
         font-size: 0.9em;
     }
 
@@ -76,20 +76,20 @@
         display: flex;
         flex-wrap: wrap;
         align-items: stretch;
-        flex-direction: row; 
+        flex-direction: row;
         width: 100%;
     }
 
-    .ai-input-forms .tab-container  {
+    .ai-input-forms .tab-container {
         width: calc((50%) - (6px));
         margin-right: 12px;
     }
-    
-    .ai-input-forms .tab-container:last-of-type{
-            margin-right: 0px;
+
+    .ai-input-forms .tab-container:last-of-type {
+        margin-right: 0px;
     }
 
-    .ai-input-forms form  {
+    .ai-input-forms form {
         width: 100%;
     }
 
@@ -101,31 +101,32 @@
 
     /* CONTINUOUS INFERENCE SCHEME */
 
-    .continuous-switcher {
-        width: 100%
+    .continuous-switcher,
+    .form-row input[type='number'] {
+        width: 95%
     }
 
     /* .input_data_time-section input:first-of-type {
         margin-right:4px;
     } */
 
-    .input_data_time-section > input[type = 'number'],
+    .input_data_time-section>input[type='number'],
     .input_data_time-section .box-fields {
         width: 45%;
-    } 
+    }
 
-    .input_data_time-section > input[type = 'number']{
+    .input_data_time-section>input[type='number'] {
         padding: 7.5px;
     }
 
     /* REPORTING SCOPE */
 
     /* This one is used to match the height of both the input and box fields of the repoting scope */
-    .reporting-row input[type='number']{
+    .reporting-row input[type='number'] {
         padding: 7px;
     }
 
-    
+
     /*
     ---------------------------------- Tooltip ----------------------------------------
     */
@@ -133,44 +134,58 @@
     .form-row .tooltip {
         width: 4%;
         margin-left: -0.5em;
-    }  
+    }
 
     .tooltip-text {
         position: absolute;
-        right: 0.1em
     }
-        
-    
+
+
     .tooltip-icon {
         /* Position of the icon */
         position: relative;
         left: 0.3em;
-        top: 0.05em;       
+        top: 0.05em;
     }
 
-    #export-result .export-tooltip {
-        margin-left: -10px;
-        margin-top: -13px;
-    }
-    
-        
+
+
     /*
     ---------------------------------- IMPORT-EXPORT ----------------------------------------
     */
-    
+
     #import-export-buttons {
         display: flex;
         flex-direction: row;
     }
-    
+
     #import-result {
         margin: 10px;
         margin-top: -5px;
         max-height: min-content;
     }
 
+    #main-export-result {
+        padding: 10px;
+        margin-top: 0px;
+        margin-bottom: 2px;
+    }
 
-    
+    .import-export-buttons {
+        gap: 0px;
+        flex-direction: column;
+    }
+
+    .ai-import-result {
+        gap: 12px;
+        flex-direction: row;
+    }
+
+    .caption-icons #ai-manufacturing_impact-text_value {
+        top: 0px;
+    }
+
+
     /*
     ---------------------------------- MINI-BOX ----------------------------------------
     */
@@ -178,30 +193,32 @@
     .caption-icons p:first-of-type {
         font-size: 22px;
         font-size: 1.7rem;
-    }    
+    }
 
     .mini-box {
         margin-right: 12px;
         height: 170px;
         padding-bottom: 25px;
-    }    
+    }
 
     /* We target the extreme right mini-box(s) */
-    .mini-box:nth-of-type(2), .mini-box:nth-of-type(5) {
+    .mini-box:nth-of-type(2),
+    .mini-box:nth-of-type(5) {
         margin-right: 0;
-    }    
+    }
 
     /* We target the top row of mini-box(s) */
-    .mini-box:nth-of-type(1), .mini-box:nth-of-type(2) {
+    .mini-box:nth-of-type(1),
+    .mini-box:nth-of-type(2) {
         width: calc((50%) - (6px));
-    }    
+    }
 
     /* We target the second row of mini-boxe(s) */
     .mini-box:nth-of-type(n+3) {
         width: calc((33%) - (8px));
         flex-direction: column;
         height: 260px;
-    }        
+    }
 
 
     /*
@@ -211,20 +228,28 @@
     .first-output {
         justify-content: start;
         align-items: start;
-        width:calc((65%) - (6px));
+        width: calc((65%) - (6px));
     }
 
-    .central-graphs{
+    .central-graphs {
         box-shadow: none;
     }
 
-    .core-metrics-wrapper{
+    .core-metrics-wrapper {
         box-shadow: none;
         padding-top: 5px;
         margin-top: -15px;
     }
 
-    .inclusion-exclusion{
+    .ai .core-metrics-wrapper {
+        box-shadow: none;
+        padding: 20px;
+        margin-top: 10px;
+        box-shadow: 2px 2px 2px lightgrey;
+
+    }
+
+    .inclusion-exclusion {
         box-shadow: none;
     }
 
@@ -236,15 +261,15 @@
         flex-grow: 1;
     }
 
-    .location-impact-graph-container{
+    .location-impact-graph-container {
         box-shadow: none;
     }
 
-    .central-results{
+    .central-results {
         height: 100%;
     }
 
-    .central-results-left{
+    .central-results-left {
         justify-content: start;
         align-self: start;
         width: calc((65%) - (6px));
@@ -261,7 +286,7 @@
         height: stretch;
     }
 
-    .central-results-right{
+    .central-results-right {
         justify-content: start;
         align-self: start;
         width: calc((35%) - (6px));
@@ -271,45 +296,69 @@
         flex-direction: column;
         text-align: center;
         border-radius: 5px;
-        background-color: #f9f9f9;
         margin: 10px 0;
-        padding: 20px 0px 10px 0px;
-        box-shadow: 2px 2px 2px lightgrey;
         height: stretch;
     }
 
-    .container .suggestions-container{
+    .central-results-right-items {
+        background-color: #f9f9f9;
+        height: stretch;
+        box-shadow: 2px 2px 2px lightgrey;
+        width: 100%;
+    }
+
+    .container .suggestions-container {
         box-shadow: none;
     }
 
-    #main-manufacturing_text{
+    #main-manufacturing_text {
         margin-top: 15px;
     }
 
-    .caption-icons #main-manufacturing_impact-text_value{
+    .caption-icons #main-manufacturing_impact-text_value {
         top: 0px;
     }
 
-    #main-logo_factory{
-        margin-top: 6px !important; 
+    #main-logo_factory {
+        margin-top: 6px !important;
     }
 
-    .equivalent-metrics-container{
+    .ai .equivalent-metrics-container {
+        box-shadow: 2px 2px 2px lightgrey;
+        width: 70%;
+    }
+
+    .ai-results-container {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .equivalent-metrics-container {
         box-shadow: none;
     }
 
-    .equivalent-metrics-results{
-    flex-direction: column;
-
-    .equivalent-metrics-item{
-        margin-top: 10px;
-        margin-bottom: 20px;
+    .ai .equivalent-metrics-results {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 6px;
     }
-}
+
+    .equivalent-metrics-results {
+        flex-direction: column;
+    }
+
+    .equivalent-metrics-item {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .suggestions-container{
+        box-shadow: none;
+    }
 
     /* INCLUSION-EXCLUSION */
 
-    .inclusion-exclusion{
+    .inclusion-exclusion {
         flex-direction: column;
     }
 
@@ -341,7 +390,7 @@
     /*
     ---------------------------------- REPORT and CORES COMPARISON ----------------------------------------
     */
-    
+
     .report {
         margin-right: 10px;
         width: calc((45%) - (6px));

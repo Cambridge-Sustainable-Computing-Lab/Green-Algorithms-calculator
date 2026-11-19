@@ -198,6 +198,8 @@ app.layout = dmc.MantineProvider(
                                     dmc.SegmentedControl(
                                         id='mode-toggle',
                                         value='classic',
+                                        persistence=True,
+                                        persistence_type='session',
                                         radius='md',
                                         size='xl',
                                         fullWidth=False,

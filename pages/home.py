@@ -7,9 +7,7 @@ Such modules also contain their own callbacks that will first be registered as p
 and then, when the page is registered in the app, as app callbacks.
 """
 
-import os
 from types import SimpleNamespace
-
 import plotly.graph_objects as go
 from dash import Input, Output, State, dcc, html
 from dash_extensions.enrich import DashBlueprint, html  # noqa: F811
@@ -83,32 +81,10 @@ def get_home_page_layout():
                 [
                     html.Div(
                         [
+                            ## CENTRAL RESULTS LEFT
                             html.Div(
                                 [
-                                    #### EXPORT DATA ####
-                                    html.Div(
-                                        [
-                                            html.Div(
-                                                [
-                                                        html.Img(
-                                                            src="/assets/images/arrow.png",
-                                                            className="export-icon",
-                                                            alt="Export results",
-                                                        ),
-                                                    html.P(
-                                                        translatable_div_text(
-                                                            "Share_your_results"
-                                                        ).embed(HOME_PAGE),
-                                                        className="tooltip-text",
-                                                    ),
-                                                ],
-                                                className="tooltip export-tooltip",
-                                            ),
-                                            dcc.Download(id="aggregate-data-csv"),
-                                        ],
-                                        # className="container footer import-export",
-                                        id="export-result",
-                                    ),
+                                    ### CORE METRICS
                                     core_metrics.embed(HOME_PAGE),
                                     html.Div(
                                         [
@@ -143,81 +119,53 @@ def get_home_page_layout():
                             ),
                             html.Div(
                                 [
-                                    #### IMPORT DATA ####
+                                    ### IMPORT-EXPORT DATA   
+                                    import_export.embed(HOME_PAGE), 
                                     html.Div(
-                                        dcc.Upload(
+                                        [
+                                            equivalents_metrics.embed(HOME_PAGE),
                                             html.Div(
                                                 [
-                                                    html.P(
-                                                        translatable_markdown_text(
-                                                            "Import_results"
+                                                    html.H3(
+                                                        translatable_div_text(
+                                                            "Location_impact_graphs_title"
                                                         ).embed(HOME_PAGE)
                                                     ),
-                                                    html.Div(
-                                                        [
-                                                            html.A(
-                                                                translatable_div_text(
-                                                                    "drag_and_drop"
-                                                                ).embed(HOME_PAGE),
-                                                                style={
-                                                                    "font-size": "12px",
-                                                                    "margin-top": "3px",
-                                                                    "text-decoration": "underline",
-                                                                },
-                                                            )
-                                                        ],
+                                                    loading_wrapper(
+                                                        dcc.Graph(
+                                                            id="barPlotComparison",
+                                                            className="graph-container",
+                                                            config={"displaylogo": False},
+                                                            figure=BLANK_FIGURE,
+                                                            style={
+                                                                "width": "100%",
+                                                                "max-width": "400px",
+                                                                "margin": "20px auto 0",
+                                                            },
+                                                        )
+                                                    ),
+        
+                                                ],
+                                                className="container location-impact-graph-container",
+                                            ),
+                                            html.Div(
+                                                [
+                                                    html.H3(
+                                                        translatable_div_text(
+                                                            "Questions_suggestions"
+                                                        ).embed(HOME_PAGE)
+                                                    ),
+                                                    html.P(
+                                                        translatable_markdown_text("Questions_suggestions_text").embed(
+                                                            HOME_PAGE
+                                                        )
                                                     ),
                                                 ],
-                                                role="button",
-                                                tabIndex=0,
-                                            ),
-                                            id="upload-data",
-                                            className="upload-data",
-                                        ),
-                                        id="import-result",
-                                    ),
-                                                            
-                                    equivalents_metrics.embed(HOME_PAGE),
-                                    html.Div(
-                                        [
-                                            html.H3(
-                                                translatable_div_text(
-                                                    "Location_impact_graphs_title"
-                                                ).embed(HOME_PAGE)
-                                            ),
-                                            loading_wrapper(
-                                                dcc.Graph(
-                                                    id="barPlotComparison",
-                                                    className="graph-container",
-                                                    config={"displaylogo": False},
-                                                    figure=BLANK_FIGURE,
-                                                    style={
-                                                        "width": "100%",
-                                                        "max-width": "400px",
-                                                        "margin": "20px auto 0",
-                                                    },
-                                                )
-                                            ),
-
-                                        ],
-                                        className="container location-impact-graph-container",
-                                    ),
-                                    html.Div(
-                                        [
-                                            html.H3(
-                                                translatable_div_text(
-                                                    "Questions_suggestions"
-                                                ).embed(HOME_PAGE)
-                                            ),
-                                            html.P(
-                                                translatable_markdown_text("Questions_suggestions_text").embed(
-                                                    HOME_PAGE
-                                                )
+                                                className="container suggestions-container",
                                             ),
                                         ],
-                                        className="container suggestions-container",
-                                        style={"box-shadow": "none"},
-                                    ),
+                                        className='central-results-right-items',
+                                    ),  
                                 ],
                                 className='central-results-right',
                             ),

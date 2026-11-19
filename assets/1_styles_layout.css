@@ -652,7 +652,7 @@ hr {
 
     justify-content: center;
     margin-top: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .import-error-message {
@@ -678,11 +678,6 @@ hr {
     border-width: 2px;
 }
 
-.import-result{
-    flex: 1 1 0;
-    min-width: 0;
-}
-
 .upload-data,
 .btn-download_csv{
     cursor: pointer;
@@ -703,12 +698,11 @@ hr {
     min-width: 0;
 }
 
-#export-result {
+#export-result, #main-export-result {
     display: flex;
     align-items: stretch;
     justify-content: center;
     width: 100%;
-    max-height: min-content;
 }
 
 #export-result .btn-download_csv {
@@ -725,18 +719,6 @@ hr {
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-#export-result .export-tooltip {
-    width: 100%;
-    display: flex;
-    justify-content: end;
-}
-
-#export-result .export-tooltip .btn-download_csv {
-    width: auto;
-    min-height: 0;
-    padding: 8px;
-    line-height: 0;
-}
 
 #export-result .btn-download_csv:hover,
 #export-result .btn-download_csv:focus-visible {
@@ -750,10 +732,6 @@ hr {
     border-color: #2d3a1b;
 }
 
-.export-icon{
-    width: 25px;
-    height: 25px;
-}
 
 #import-result {
     /* margin-left: 10px; */
@@ -761,7 +739,7 @@ hr {
     margin: 10px 0;
 }
 
-#import-result .upload-data {
+#main-import-result .upload-data, #ai-import-result{
     width: 100%;
     min-height: 58px;
     padding: 12px 20px;
@@ -771,6 +749,10 @@ hr {
     color: rgb(60, 60, 60);
     text-align: center;
     transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.import-result{
+    padding: 0px;
 }
 
 #import-result .upload-data:hover,
@@ -799,12 +781,15 @@ hr {
 
 .import-export-container {
     width: 100%;
+    order: -1;
+    display: flex;
+    flex-direction: row;
 }
 
-#main-export-result{
+/* #main-export-result{
     margin-top: -10px;
     margin-right: -10px;
-}
+} */
 
 @media only screen and (max-width: 1131px) {
     .central-results {
@@ -842,6 +827,14 @@ hr {
     width: 100%;
 }
 
+.ai .core-metrics-container{
+    gap: 25px;
+}
+
+#ai-manufacturing_text{
+    font-weight: 600;
+}
+
 .detailed-metric-container {
     width: 100%;
     display: inline-flex;
@@ -877,6 +870,7 @@ hr {
     width: 100%;
     justify-content: space-around;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .core-metrics-header{
@@ -900,7 +894,13 @@ hr {
 .caption-icons #main-manufacturing_impact-text_value{
     font-size: 1.5rem;
     position: relative;
-    top: -8px;
+    top: -5px;
+}
+
+.caption-icons #ai-manufacturing_impact-text_value{
+    font-size: 1.5rem;
+    position: relative;
+    top: -5px;
 }
 
 .central-box{
@@ -919,6 +919,12 @@ hr {
 
 }
 
+.ai-results-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .page_content .tooltip-icon{
     color: rgb(60, 60, 60);
     border-color: rgb(60, 60, 60);
@@ -926,6 +932,10 @@ hr {
 
 .central-results-right{
     width: 100%;
+}
+
+.central-results-right-items{
+    width: 100%
 }
 
 /*

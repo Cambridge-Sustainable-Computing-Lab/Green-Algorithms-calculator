@@ -62,6 +62,9 @@
         width: 23.5%;
     } 
 
+    .ai .tooltip{
+        margin-right: auto;
+    }
 
     .tooltip {
         width: 4%;
@@ -93,23 +96,23 @@
     .central-results-right .graph-container{
         margin-bottom: 20px !important;
     }
-    
-    .upload-data{
-        padding: 25px !important;
+
+    #ai-import-result .upload-data{
+        padding: 15px !important;
     }
 
     .suggestions-container{
         padding-bottom: 28px;
     }
 
+    .ai .equivalent-metrics-results {
+        gap: 20px;
+    }
+
     /*
     ---------------------------------- IMPORT-EXPORT ----------------------------------------
     */
 
-    #export-result .export-tooltip {
-        margin-left: -40px;
-        margin-top: -10px;
-    }
     
 
     /*

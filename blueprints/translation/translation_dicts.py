@@ -376,7 +376,7 @@ TRANSLATIONS_DICT = {
     #### IMPORT & EXPORT ####
 
     "Share_your_results": {
-        "en": 'Export results',
+        "en": 'Share your results as a csv file!',
         
     },
     "Import_results": {
