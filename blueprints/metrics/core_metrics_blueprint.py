@@ -105,7 +105,6 @@ class CoreImpactsBlueprint(DashBlueprint):
                                 ),
                                 self.energy_needed_details,
                             ],
-                            # className="container mini-box",
                         ),
                         #### CARBON EMISSIONS ####
                         html.Div(
@@ -195,6 +194,7 @@ class CoreImpactsBlueprint(DashBlueprint):
                                     ],
                                     className="mini-box-main-content",
                                 ),
+                                # TODO: Add manufactruring details for AI view
                                 # self.manufacturing_details,
                             ]
                         )
