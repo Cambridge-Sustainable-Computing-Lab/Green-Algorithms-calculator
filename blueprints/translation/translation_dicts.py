@@ -95,7 +95,7 @@ TRANSLATIONS_DICT = {
     "Home_form_subtitle": {
         "en": '''
                 To understand how each parameter impacts your environmental footprint, 
-                check out the formula below and the [methods article](https://onlinelibrary.wiley.com/doi/10.1002/advs.202100707)
+                check out the Methodology section below and the [methods article](https://onlinelibrary.wiley.com/doi/10.1002/advs.202100707)
             ''',
         
     },
@@ -360,6 +360,9 @@ TRANSLATIONS_DICT = {
 
     #### GRAPHS ####
 
+    "Manufacturing_impacts_vs_usage":{
+        "en": 'Manufacturing impacts VS Usage'
+    },
     "Computing_cores_VS_Memory": {
         "en": 'Computing cores VS Memory',
     },
@@ -445,8 +448,15 @@ TRANSLATIONS_DICT = {
         
     },
     "Energy_needed": {
-        "en": "Energy needed",
+        "en": "Energy used",
         
+    },
+    "manufacturing_impact": {
+        "en": "Manufacturing impact",
+            
+    },
+    "manufacturing_impact_tooltip": {
+        "en": "Represents GHGs emitted during the manufacture of the hardware used"
     },
     "Carbon_sequestration": {
         "en": "Carbon sequestration",
@@ -468,14 +478,37 @@ TRANSLATIONS_DICT = {
         "en": "of a flight",
         "fr": "d'un vol",
     },
+    "comparison_heading": {
+        "en": "Comparisons",
+    },
+    "suggestion_heading":{
+        "en": "Questions/Suggestions?"
+    },
+    "suggestions": {
+        "en": "If you have any suggestions or questions about the tool, you can open an issue on Github."
+    },
 
     #### METHODOLOGY ####
 
     ### Header container
 
+    "Calculator_exclusions_header": {
+        "en": "What the calculator does not include?",
+    },
+
+    "Calculator_exclusions_text": {
+        "en": '''
+                Other environmental impact such as water use, e-waste produced, changes to land use on site of the computing facilities that could impact biodiversity and local populations.
+            ''',
+    },
+
+    "Methodology_header": {
+        "en": "Methodology",
+    },
+
     "methodology_details_1": {
         "en": '''
-                🌱 More details about the methodology in the [methods paper](https://onlinelibrary.wiley.com/doi/10.1002/advs.202100707).
+                🌱 To learn more about what _is_ included and the formula, check out the Methodology section or the [methods paper](https://onlinelibrary.wiley.com/doi/10.1002/advs.202100707).
             ''',
         
     },

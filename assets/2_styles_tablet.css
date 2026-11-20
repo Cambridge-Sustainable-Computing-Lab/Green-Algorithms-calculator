@@ -1,12 +1,28 @@
 /* Tablet Styles */
 
-@media only screen and (min-width: 550px) and (max-width: 1000px) {
+@media only screen and (min-width: 550px) and (max-width: 1131px) {
 
     html {
         font-size: 57%;
     }
 
-    
+    .fullPage {
+        margin: 0 auto;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    @media only screen and (min-width: 550px) and (max-width: 700px) {
+        .fullPage {
+            width: 550px;
+        }
+    }
+
+    @media only screen and (min-width: 700px) and (max-width: 1131px) {
+        .fullPage {
+            width: 700px;
+        }
+    }
     
     /*
     ---------------------------------- NAVBAR ----------------------------------------
@@ -43,7 +59,6 @@
     
     #language_div {
             margin-right: auto;
-            width: fit-content;
         }
 
     #version-button {
@@ -55,7 +70,6 @@
     }
     
     #data_version_tooltip .tooltip-text{
-        font-size: 0.8em;
         top: 2.2em
     }
 
@@ -174,8 +188,8 @@
     }
 
     #export-result {
-        margin-right: 4px;
-        width: calc((50%) - (4px));
+        margin-bottom: -40px;
+        margin-left: -5px;
     }
 
     #import-result {
@@ -184,6 +198,10 @@
     }
 
     #import-error-message{
+        width: 100%;
+    }
+
+    #main-upload-data{
         width: 100%;
     }
     
@@ -215,20 +233,11 @@
     }
 
     /*
-    ---------------------------------- FIRST OUTPUT ----------------------------------------
+    ---------------------------------- CORE-METRICS ----------------------------------------
     */
 
-    .one-of-two-graphs {
-        width: calc((50%) - (10px));
-    }
-
-    .one-of-two-graphs:first-of-type {
-        margin-right: 20px;
-        margin-bottom: 0;
-    }
-
-    .pie-graph {
-        margin-top: 70px;
+    .core-metrics-container {
+        padding-top: 15px;
     }
 
     /*
@@ -258,25 +267,7 @@
         align-items: stretch;
     }
 
-    .data-questions .container:first-of-type {
-        margin-right: 12px;
-        width: calc((40%) - (6px));
-    }
-
-    .data-questions .container:last-of-type {
-        width: calc((60%) - (6px));
-    }
-
-    .about-us {
-        margin-right: 12px;
-        width: calc((55%) - (6px));
-    }
-
     .show-stripes {
         width: calc((45%) - (6px));
-    }
-
-    .citation {
-        order: 1;
     }
 }

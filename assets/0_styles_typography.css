@@ -4,19 +4,18 @@ html {
 
 body {
     font-size: 18px;
-    font-size: 1.8rem;
-    font-family: 'Raleway', serif;
+    font-size: 1.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: rgb(60, 60, 60);
     font-weight: 300;
     line-height: 1.3;
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Ruda', sans-serif;
     font-weight: 500;
     text-align: center;
-    letter-spacing: -0.15rem;
-    line-height: 1.2;
+    letter-spacing: -0.05rem;
+    line-height: 1.1;
 }
 
 strong {
@@ -32,7 +31,7 @@ h1 {
 
 h2 {
     font-size: 28px;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     margin-bottom: 11px;
 }
 
@@ -56,7 +55,6 @@ p:not(:last-of-type) {
     font-size: 1.8rem;
     font-weight: 400;
     font-style: italic;
-    font-family: 'Raleway', serif;
     color: rgb(100, 100, 100);
     line-height: 1.3;
 }
@@ -66,8 +64,12 @@ p:not(:last-of-type) {
 ---------------------------------- HEADER ----------------------------------------
 */
 
+.header_title_container h1,
+.header_title_container p {
+    text-align: left;
+}
+
 .header p {
-    font-family: 'Ruda', sans-serif;
     font-weight: 400;
     font-style: italic;
     font-size: 21px;
@@ -87,13 +89,18 @@ p:not(:last-of-type) {
 
 .change_version_text p div {
     color: rgb(60, 60, 60);
+    font-size: 1em;
     text-decoration: underline;
-    font-size: 0.8em;
     font-style: normal;
 }
 
 .change_version_text p:hover {
     color: rgb(80, 80, 80);
+}
+
+.header-right p{
+    font-size: 1em;
+    font-style: normal;
 }
 
 /*
@@ -104,7 +111,7 @@ form p {
     font-style: italic;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 .form-row > label {
@@ -155,13 +162,13 @@ input, select, .Select, textarea {
     font-style: bold;
     font-size: 0.8em;
     text-align: center;
-    color: rgb(100, 100, 100);
+    color: #fff;
     /* Border of the icon */
     height: 1.1em;
     width: 1.2em;
     line-height: 1.1em;
     border-radius: 50%;
-    border: .5px solid rgb(100, 100, 100);
+    border: .5px solid #fff;
     /* Position of the icon */
     position: relative;
     left: 0.3em;
@@ -186,7 +193,6 @@ input, select, .Select, textarea {
 
 
 #data_version_tooltip .tooltip-text {
-    font-family: 'Raleway', serif;
     font-style: normal;
     font-weight: 200;
 }
@@ -209,8 +215,7 @@ input, select, .Select, textarea {
 }
 
 #import-result {
-    font-size: 22px;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
 }
 
 .error-message-title {
@@ -319,7 +324,6 @@ blockquote {
 .text-italic {
     font-style: italic;
 }
-
 
 
 

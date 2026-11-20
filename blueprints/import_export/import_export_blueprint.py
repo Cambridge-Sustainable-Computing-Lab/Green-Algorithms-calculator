@@ -34,6 +34,7 @@ class ImportExportBlueprint(DashBlueprint):
             Given in milliseconds. Defaults to 1500.
         """
         super().__init__(transforms = [PrefixIdTransform(prefix = id_prefix, escape=custom_prefix_escape)])
+        self.id_prefix = id_prefix
         self.layout = self._get_layout(csv_flushing_delay)
         self._define_callbacks()
 
@@ -52,12 +53,15 @@ class ImportExportBlueprint(DashBlueprint):
                 html.Div(
                     [
                         #### EXPORT DATA ####
-
                         html.Div(
                             [
                                 html.Div(
                                     [
-                                        html.Div(translatable_div_text("Share_your_results").embed(self),  id='btn-download_csv', className='btn-download_csv'),
+                                        html.Div(
+                                            translatable_div_text("Share_your_results").embed(self),
+                                            id='btn-download_csv',
+                                            className='btn-download_csv',
+                                        ),
                                         dcc.Download(id="aggregate-data-csv"),
                                     ],
                                 )
@@ -90,7 +94,7 @@ class ImportExportBlueprint(DashBlueprint):
                             id='import-result',
                         ),
                     ],
-                    className='import-export-buttons',
+                    className=f'import-export-buttons {self.id_prefix}-import-result',
                 ),
 
                 #### ERROR MESSAGE ####
@@ -142,7 +146,12 @@ class ImportExportBlueprint(DashBlueprint):
                 file_suffixe = 'AI'
             now = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
             to_export = pd.DataFrame.from_dict(aggregate_data, orient='columns')
-            return dcc.send_data_frame(to_export.to_csv, f"GreenAlgorithms_results_{file_suffixe}_{now}.csv", index=False, sep=';')
+            return dcc.send_data_frame(
+                to_export.to_csv,
+                f"GreenAlgorithms_results_{file_suffixe}_{now}.csv",
+                index=False,
+                sep=';',
+            )
 
         ################## IMPORT DATA
 

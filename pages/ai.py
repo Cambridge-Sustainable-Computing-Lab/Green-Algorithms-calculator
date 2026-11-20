@@ -19,7 +19,8 @@ from dash_extensions.enrich import DashBlueprint, html
 
 from blueprints.form.form_blueprint import FormBlueprint
 from blueprints.import_export.import_export_blueprint import ImportExportBlueprint
-from blueprints.metrics.metrics_blueprint import MetricsBlueprint
+from blueprints.metrics.core_metrics_blueprint import CoreImpactsBlueprint
+from blueprints.metrics.equivalent_metrics_blueprint import EquivalentsMetricsBlueprint
 from blueprints.methodology.methodology_blueprint import MethodologyBlueprint
 
 import blueprints.metrics.utils as metrics_utils
@@ -69,12 +70,13 @@ methodo_content = MethodologyBlueprint(
     to_add_ai_methodology_text = True
 )
 
-metrics = MetricsBlueprint(
+metrics = CoreImpactsBlueprint(
     id_prefix=AI_PAGE_ID_PREFIX,
     to_add_metrics_details=True,
     training_id_prefix=TRAINING_ID_PREFIX,
     inference_id_prefix=INFERENCE_ID_PREFIX
 )
+equivalents_metrics = EquivalentsMetricsBlueprint(id_prefix=AI_PAGE_ID_PREFIX)
 
 
 ###################################################
@@ -305,19 +307,25 @@ def get_ai_page_layout():
                         className='tab-container',
                     ),
                 ],
-                className=f'ai-input-forms'
+                className='ai-input-forms'
             ),
 
             #### RESULTS ####
-
-            metrics.embed(AI_PAGE),
+            html.Div(
+                [
+                    metrics.embed(AI_PAGE),
+                    equivalents_metrics.embed(AI_PAGE),
+                ],
+                id='ai-results-container',
+                className='ai-results-container',
+            ),
                         
             #### METHODOLOGY CONTENT ####
 
             methodo_content.embed(AI_PAGE),
 
         ],
-        className='page_content'
+        className='page_content ai'
     )
 
     return page_layout

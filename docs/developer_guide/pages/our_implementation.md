@@ -9,7 +9,7 @@ The calculator contains two pages:
 
 The above two scripts implement both the layout and callbacks of the pages. As explained in our [getting_started file](../../developer_guide/getting_started.md#pages), pages are implemented as `DashBlueprint` instances. These are then registered in the app.
 
-Our pages layout mostly resumes to correctly assembling the modules layout. Thus, the few page-level callbacks are designed to ensure the interaction between the different modules: forward the `ImportExportBlueprint` data to the `FormBlueprint` when the user imports data and reciprocally when the user exports the form state, turn the `FormBlueprint` results into metrics to be displayed in the `MetricsBlueprint`... These callbacks mostly involve `dcc.Store` components as they act as intermediate variables between the different modules.
+Our pages layout mostly resumes to correctly assembling the modules layout. Thus, the few page-level callbacks are designed to ensure the interaction between the different modules: forward the `ImportExportBlueprint` data to the `FormBlueprint` when the user imports data and reciprocally when the user exports the form state, turn the `FormBlueprint` results into metrics to be displayed in the `CoreImpactsBlueprint` and `EquivalentsMetricsBlueprint`... These callbacks mostly involve `dcc.Store` components as they act as intermediate variables between the different modules.
 
 ??? danger "ID prefix must be manually added for outer callbacks"
     The callbacks that benefit from automatic ID prefixing are only those that are directly attached to the `DashBlueprint` instance. So for all callbacks implemented at the page level for instance, the ID prefix must be manually added to the Input, Output and State.

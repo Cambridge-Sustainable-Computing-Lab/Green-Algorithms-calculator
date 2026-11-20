@@ -15,23 +15,32 @@ is a "drop-in replacement" for the `dash.Dash` object. We must use it because of
 ### WARNING: Above text is part of the online documentation. Be careful when modifying it.
 
 import os
+
 import dash
-from flask import send_file # Integrating Loader IO
-
-from dash import html, dcc, ctx, _dash_renderer
-from dash.dependencies import Input, Output, State
-
-from dash_extensions.enrich import DashProxy
+import dash_daq as daq
 import dash_mantine_components as dmc
+from dash_iconify import DashIconify
+from dash import _dash_renderer, ctx, dcc, html
+from dash.dependencies import Input, Output, State
+from dash_extensions.enrich import DashProxy
+from flask import send_file  # Integrating Loader IO
+
 _dash_renderer._set_react_version("18.2.0")
 
-from utils.handle_inputs import load_data, CURRENT_VERSION, DATA_DIR, get_available_versions, APP_VERSION_OPTIONS_LIST
-from pages.home import HOME_PAGE, HOME_PAGE_ID_PREFIX
-from pages.ai import AI_PAGE, AI_PAGE_ID_PREFIX
-
 from blueprints.translation.translatable_div_text_blueprint import translatable_div_text
-from blueprints.translation.translatable_markdown_text_blueprint import translatable_markdown_text
-
+from blueprints.translation.translatable_markdown_text_blueprint import (
+    translatable_markdown_text,
+)
+from blueprints.translation.translation_dicts import TRANSLATIONS_DICT
+from pages.ai import AI_PAGE, AI_PAGE_ID_PREFIX
+from pages.home import HOME_PAGE, HOME_PAGE_ID_PREFIX
+from utils.handle_inputs import (
+    APP_VERSION_OPTIONS_LIST,
+    CURRENT_VERSION,
+    DATA_DIR,
+    get_available_versions,
+    load_data,
+)
 
 ###################################################
 ## CREATE APP AND PAGES
@@ -70,52 +79,12 @@ server = app.server
 HOME_PAGE.register(app, module='home', path='/', title='Green Algorithms - Classic view')
 AI_PAGE.register(app, module='ai', path='/ai', title='Green Algorithms - AI view')
 
-
+image_dir = os.path.join("assets", "images")
 
 ###################################################
 ## CREATE NAVBAR
 
-name_per_page = {'Home': translatable_div_text('Classic-view').embed(app), 'Ai': translatable_div_text('AI-view').embed(app)}
-pages = list(dash.page_registry.values())
-
 appVersions_options = get_available_versions()
-
-def get_pages_navbar_layout():
-    '''
-    Defines the navigation bar layout. It relies on the `NavLink` item from the
-    dash_mantine_components library and the built-in navigation feature of dash pages.
-    '''
-
-    return html.Div(
-    [
-        dmc.NavLink(
-            label=html.Div(
-                name_per_page[pages[0]['name']],
-                className='navlink-label',
-                id=f'{pages[0]["name"]}-navlink-label',
-            ),
-            # Built-in navigation from Dash (see the documentation)
-            href=pages[0]["path"],
-            id=f'{pages[0]["name"]}-navlink',
-            className='page-navlink',
-        ),
-
-        dmc.NavLink(
-            label=html.Div(
-                name_per_page[pages[1]['name']],
-                className='navlink-label',
-                id=f'{pages[1]["name"]}-navlink-label',
-            ),
-            # Built-in navigation from Dash (see the documentation)
-            href=pages[1]["path"],
-            id=f'{pages[1]["name"]}-navlink',
-            className='page-navlink',
-        ),
-    ],
-    className = 'pages-menu',
-)
-
-pages_navbar = get_pages_navbar_layout()
 
 versions_choice = html.Div(
     [
@@ -204,31 +173,85 @@ app.layout = dmc.MantineProvider(
 
             html.Div(
                 [
-                    html.H1(translatable_div_text("Green Algorithms calculator").embed(app)),
-
-                    html.P(translatable_div_text("Subtitle").embed(app)),
-
                     html.Div(
                         [
-                            html.Hr(style={'background-color': 'rgb(60, 60, 60)'}),
+                            html.Div(
+                                [
+                                    html.Img(
+                                        src=os.path.join(image_dir, "ga_logo_tree.png"),
+                                        id="ga_logo",
+                                        className="header-logo",
+                                        style={"width": "80px", "padding": "0px", "padding-bottom": "5px", "margin-right": "10px"},
+                                    ),
+                                    html.Div(
+                                        [
+                                            html.H1(translatable_div_text("Green Algorithms calculator").embed(app)),
+                                            html.P(translatable_div_text("Subtitle").embed(app)),
+                                        ],
+                                        className='header_title_container',
+                                    ),
+                                ],
+                                className='header_title',
+                                style={"display": "flex", "flex-direction": "row", "align-items": "center"},
+                            ),
+                            html.Div(
+                                [
+                                    dmc.SegmentedControl(
+                                        id='mode-toggle',
+                                        value='classic',
+                                        persistence=True,
+                                        persistence_type='session',
+                                        radius='md',
+                                        size='xl',
+                                        fullWidth=False,
+                                        data=[
+                                        {
+                                            'value': 'classic',
+                                            'label': TRANSLATIONS_DICT['Classic-view']['en'],
+                                        },
+                                        {
+                                            'value': 'ai',
+                                            'label': TRANSLATIONS_DICT['AI-view']['en'],
+                                        },
+                                        ],
+                                    ),
+                                    language_choice,
+                                    versions_choice,
+                                ],
+                                className='header-right',
+                            ),
                         ],
-                        className='Hr_div_header',
-                    ),
-
-                    pages_navbar,
-
-                    html.Div(
-                        [
-                            language_choice,
-                            versions_choice,
-                        ],
-                        className='version_and_language_div'
-                    ),
+                        className='header-content',
+                    ),               
+                    # html.Div(
+                    #     [
+                            
+                    #         html.Div(
+                    #             html.A(
+                    #                 html.Button("Data and code", id='github-link-button', className='btn-download_csv',),
+                    #                 href='https://github.com/Cambridge-Sustainable-Computing-Lab/Green-Algorithms-calculator',
+                    #                 target="_blank",
+                    #             ),
+                    #             className='header-button-container'
+                    #         )
+                    #     ],
+                    #     className='header-nav-buttons'
+                    # ),
 
                 ],
                 className='container header'
             ),
+
+            #### PAGE CONTENT #####
             
+            # Pages are registered manually above and their layout is inserted in the app
+            # as suggested in the official documentation (https://dash.plotly.com/urls)
+            dash.page_container,
+
+            #### FOOTERS #####
+
+            # TODO revisit the footer
+
             # TODO include outstanding issues and PRs
             html.Div(
                 [
@@ -254,16 +277,6 @@ app.layout = dmc.MantineProvider(
                 ],
                 className='container footer'
             ),
-
-            #### PAGE CONTENT #####
-            
-            # Pages are registered manually above and their layout is inserted in the app
-            # as suggested in the official documentation (https://dash.plotly.com/urls)
-            dash.page_container,
-
-            #### FOOTERS #####
-
-            # TODO revisit the footer
         
             html.Div(
                 [
@@ -278,16 +291,6 @@ app.layout = dmc.MantineProvider(
                         className='container footer'
                     ),
 
-                    ### QUESTIONS AND SUGGESTIONS ###
-
-                    html.Div(
-                        [
-                            html.H2(translatable_div_text('Questions_suggestions').embed(app)),
-
-                            html.Div(translatable_markdown_text("Questions_suggestions_text").embed(app)),
-                        ],
-                        className='container footer'
-                    )
                 ],
                 className='super-section data-questions'
             ),
@@ -320,24 +323,71 @@ app.layout = dmc.MantineProvider(
 
             # TODO add funders logos
 
-            #### SHOW YOUR STRIPES ####
+            #### COMMON FOOTER ####
 
-            html.Div(
+            html.Footer(
                 [
-                    html.H2(translatable_div_text("ShowYourStripes").embed(app)),
-
-                    html.Div(translatable_markdown_text("ShowYourStripes_text").embed(app)),
-
-                    html.Div(translatable_markdown_text("More_on").embed(app)),
-                    
-                    html.Div(translatable_markdown_text("Additional_credits").embed(app)),
-
+                    html.Div(
+                        [
+                            html.A(
+                                [
+                                    DashIconify(
+                                        icon="fa6-brands:github",
+                                        width=20,
+                                        height=20,
+                                    ),
+                                    html.P("GITHUB", style={'font-weight': '700', 'margin-top': '3px'}),
+                                ],
+                                href="https://github.com/Cambridge-Sustainable-Computing-Lab/Green-Algorithms-calculator",
+                                target="_blank",
+                                rel="noopener noreferrer",
+                                className="footer-social-link",
+                                title="GitHub",
+                            ),
+                            html.A(
+                                html.Img(
+                                    src="/assets/images/License-CC BY 4.0-lightgrey.svg",
+                                    alt="Licensed under CC BY 4.0",
+                                    className="footer-license-badge",
+                                ),
+                                href="https://creativecommons.org/licenses/by/4.0/",
+                                target="_blank",
+                                rel="noopener noreferrer",
+                                className="footer-license-link",
+                                title="Creative Commons Attribution 4.0 International",
+                            ),
+                        ],
+                        className="footer-social-icons",
+                    ),
+                    html.Div(
+                        [
+                            "© 2026 ",
+                            html.A(
+                                "Cambridge Sustainable Computing Lab",
+                                href="https://cam-sustainablecomputing.org",
+                                target="_blank",
+                                rel="noopener noreferrer",
+                                className="footer-copyright-link",
+                                style={'color': '#98bf5a', 'font-size': '1em'},
+                            ),
+                        ],
+                        className="footer-copyright",
+                    ),
                 ],
-                className='container show-stripes footer'
+                className="shared-footer",
             ),
+
         ],
         className='fullPage'
     )
+)
+
+app.validation_layout = html.Div(
+    [
+        app.layout,
+        HOME_PAGE.layout,
+        AI_PAGE.layout,
+    ]
 )
 
 
@@ -349,36 +399,33 @@ app.layout = dmc.MantineProvider(
 # those related to the version choice and backend data loading, 
 # and page navigation.
 
-################## NAVIGATION BAR
+################## MODE NAVIGATION
 
 @app.callback(
-        [
-            Output('Home-navlink', 'style'),
-            Output('Classic-view-text_value', 'style'),
-            Output('Ai-navlink', 'style'),
-            Output('AI-view-text_value', 'style'),
-        ],
-        Input('url_content', 'pathname')
+    Output('url_content', 'pathname'),
+    Input('mode-toggle', 'value'),
+    prevent_initial_call=True,
 )
-def style_navlink(url_pathname: str):
-    """ 
-    Once the page is changed (built-in page navigation), this
-    callback adapts the css of the navigation labels.
+def navigate_to_mode(mode: str):
+    """Navigate to the selected calculator mode."""
+    return '/ai' if mode == 'ai' else '/'
 
-    Args:
-        url_pathname (str): used to retrieve the page that is being displayed.
-    """
-    # Define the different styles possibilities
-    to_be_clicked_style = {'cursor': 'pointer'}
-    to_be_clicked_label_style = {'text-decoration': 'underline', 'font-weight': '200'}
-    current_page_navlink_style = {'cursor': 'default'}
-    current_page_label_style = {'text-decoration': 'none', 'font-weight': '600'}
-    # Allocate the style dictionnaries to the right ouputs
-    if 'ai' in url_pathname:
-        return to_be_clicked_style, to_be_clicked_label_style, current_page_navlink_style, current_page_label_style
-    else:
-        return current_page_navlink_style, current_page_label_style, to_be_clicked_style, to_be_clicked_label_style
-
+@app.callback(
+    Output('mode-toggle', 'data'),
+    Input('language_dropdown', 'value'),
+)
+def translate_mode_toggle(language_id: str):
+    """Translate the labels displayed in the mode selector."""
+    return [
+        {
+            'value': 'classic',
+            'label': TRANSLATIONS_DICT['Classic-view'][language_id],
+        },
+        {
+            'value': 'ai',
+            'label': TRANSLATIONS_DICT['AI-view'][language_id],
+        },
+    ]
 
 ################## LANGUAGE CHOICE
     

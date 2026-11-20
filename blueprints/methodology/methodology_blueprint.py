@@ -36,59 +36,55 @@ class MethodologyBlueprint(DashBlueprint):
         
 
     def _get_layout(self, ai_methodology_text: html.Div):
-        return html.Div(
-        [
-            #### PUBLICATION ####
+        return html.Details(
+            [
+                html.Summary(
+                    translatable_div_text("Methodology_header").embed(self),
+                    className='methodology-summary',
+                ),
+                html.Div(
+                    [
+                        #### FORMULA ####
 
-            html.Div(
-                [
-                    html.P(translatable_markdown_text("methodology_details_1").embed(self)),
+                        html.Div(
+                            [
+                                html.H2(translatable_div_text("The_formula_header").embed(self)),
 
-                    html.P(translatable_markdown_text("methodology_details_2").embed(self)),
+                                ai_methodology_text,
 
-                    html.P(translatable_markdown_text("methodology_details_3").embed(self))
-                ],
-                className='container text-italic'
-            ),
+                                html.Div(translatable_markdown_text("the_formula_detail").embed(self)),
 
-            #### FORMULA ####
+                            ],
+                            className='container formula'
+                        ),
 
-            html.Div(
-                [
-                    html.H2(translatable_div_text("The_formula_header").embed(self)),
+                        #### DEFINITIONS ####
 
-                    ai_methodology_text,
+                        html.Div(
+                            [
+                                html.Div(
+                                    [
+                                        html.H2(translatable_div_text("About_CO2e").embed(self)),
 
-                    html.Div(translatable_markdown_text("the_formula_detail").embed(self)),
+                                        html.Div(translatable_markdown_text('about_co2_detail').embed(self))
+                                    ],
+                                    className='container'
+                                ),
 
-                ],
-                className='container formula'
-            ),
+                                html.Div(
+                                    [
+                                        html.H2(translatable_div_text("What_is_a_tree-month").embed(self)),
 
-            #### DEFINITIONS ####
-
-            html.Div(
-                [
-                    html.Div(
-                        [
-                            html.H2(translatable_div_text("About_CO2e").embed(self)),
-
-                            html.Div(translatable_markdown_text('about_co2_detail').embed(self))
-                        ],
-                        className='container'
-                    ),
-
-                    html.Div(
-                        [
-                            html.H2(translatable_div_text("What_is_a_tree-month").embed(self)),
-
-                            html.Div(translatable_markdown_text("What_is_a_tree-month_details").embed(self)),
-                        ],
-                        className='container'
-                    ),
-                ],
-                className='super-section definitions'
-            ),
-        ],
-        className='methodology-container'
-    )
+                                        html.Div(translatable_markdown_text("What_is_a_tree-month_details").embed(self)),
+                                    ],
+                                    className='container'
+                                ),
+                            ],
+                            className='super-section definitions'
+                        ),
+                    ],
+                    className='methodology-container'
+                ),
+            ],
+            className='container methodology-panel',
+        )

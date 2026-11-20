@@ -1,7 +1,7 @@
 # Green Algorithms 
 **www.green-algorithms.org**
 
-[![Generic badge](https://img.shields.io/badge/Version-v3.0-blue.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/Version-v4-blue.svg)](https://shields.io/)
   
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/purple?icon=github)](https://github.com/Naereen/badges/)
@@ -106,15 +106,14 @@ with the support of [Prof Michael Inouye](https://www.inouyelab.org/) from the U
 
 ### Software and images
 - The app was designed using [Plotly Dash](https://plot.ly/dash/).
-- The background image is realised by [Ed Hawkins](https://showyourstripes.info) from the University of Reading.
-- The icons used are under [CC Attribution licence](https://creativecommons.org/licenses/by/4.0/) 
+- The icons used are under [CC Attribution licence](https://creativecommons.org/licenses/by/4.0/) or [flaticon licence](https://www.flaticon.com/license/license.pdf)
 and have been designed by 
 [Laura Reen](https://icon-icons.com/icon/weather-co2-pollution/90772),
 [Jeremiah](https://icon-icons.com/icon/preferences-system-power-energy/103835),
 [Sergei Kokota](https://icon-icons.com/icon/tree-greenery-nature/53329),
-[Baianat](https://icon-icons.com/icon/car/61086) and
-[RoundIcons](https://icon-icons.com/icon/plane-airplane/89770).
-.
+[Baianat](https://icon-icons.com/icon/car/61086),
+[RoundIcons](https://icon-icons.com/icon/plane-airplane/89770) and
+[smashingstocks](https://www.flaticon.com/ru/free-icon/industry_3033285).
 
 ## Licence
 
